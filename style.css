@@ -75,7 +75,7 @@ a {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -559,83 +559,83 @@ a {
 
 /* 3. The Right Display Area (Centered) */
 .display-header h3 {
-    font-size: 1.8rem;
-    color: var(--primary-blue);
-    margin-bottom: 25px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    /* CENTERING FIXES: */
-    text-align: center; 
-    width: 100%;
+  font-size: 1.8rem;
+  color: var(--primary-blue);
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  /* CENTERING FIXES: */
+  text-align: center;
+  width: 100%;
 }
 
 .members-grid-compact {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
 }
 
 /* Compact Card Style */
 .compact-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #eee;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .compact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-color: var(--accent-gold);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-gold);
 }
 
 .compact-header {
-    height: 80px;
-    background: var(--light-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+  height: 80px;
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .compact-logo {
-    max-height: 100%;
-    max-width: 80%;
-    object-fit: contain;
+  max-height: 100%;
+  max-width: 80%;
+  object-fit: contain;
 }
 
 .compact-body {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    /* CENTERING FIXES: */
-    align-items: center; /* Centers flex items horizontally */
-    text-align: center;  /* Centers text paragraphs */
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* CENTERING FIXES: */
+  align-items: center; /* Centers flex items horizontally */
+  text-align: center; /* Centers text paragraphs */
 }
 
 .compact-body h4 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: #333;
-    line-height: 1.4;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+  line-height: 1.4;
 }
 
 .compact-role {
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 15px;
-    flex-grow: 1;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 15px;
+  flex-grow: 1;
 }
 
 .compact-link {
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: var(--primary-blue);
-    margin-top: auto;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--primary-blue);
+  margin-top: auto;
 }
 
 .slide-up {
@@ -1799,46 +1799,46 @@ a {
 
 /* The Benefits List */
 .benefits-list {
-    list-style: none;
-    margin-top: 20px;
-    padding: 0;
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
 }
 
 .benefits-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 25px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee; /* Light separator line */
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee; /* Light separator line */
 }
 
 .benefits-list li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 /* Gold Checkmark Icon */
 .benefits-list li i {
-    color: var(--accent-gold);
-    font-size: 1.4rem;
-    margin-top: 2px;
-    flex-shrink: 0; /* Prevents icon from squashing */
+  color: var(--accent-gold);
+  font-size: 1.4rem;
+  margin-top: 2px;
+  flex-shrink: 0; /* Prevents icon from squashing */
 }
 
 /* Benefit Title */
 .benefits-list li strong {
-    color: var(--primary-blue);
-    font-size: 1.05rem;
-    display: block;
-    margin-bottom: 5px;
+  color: var(--primary-blue);
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 5px;
 }
 
 /* Benefit Description */
 .benefits-list li p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-    line-height: 1.5;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* =========================================
@@ -1846,22 +1846,29 @@ a {
    ========================================= */
 @media (max-width: 768px) {
   /* --- NAVIGATION --- */
+  /* 2. The Toggle Button (Hamburger / X) */
   .menu-toggle {
     display: block;
+    position: relative;
+    z-index: 1002; /* Highest priority - stays visible on top of the white menu */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary-blue);
   }
   .nav-links {
-    position: absolute;
-    top: 60px;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0; /* Starts at the very top of the screen */
     left: 0;
     width: 100%;
     background-color: white;
     flex-direction: column;
     align-items: center;
-    padding: 20px 0;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-150%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 999;
+    justify-content: flex-start; /* Start from top */
+    padding-top: 80px; /* Push links down so they aren't hidden by the X button */
+    box-shadow: none;
+    transform: translateY(-100%); /* Slide in from top */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 900; /* Higher than the header (1000) */
   }
   .nav-links.active {
     transform: translateY(0%);
@@ -2003,7 +2010,10 @@ a {
     grid-template-columns: 1fr;
   }
   .modal-image-col {
-    height: 250px;
+    height: 180px;
+  }
+  .modal-text-col {
+    padding: 20px 25px;
   }
   .lightbox-content {
     width: 95%;
@@ -2012,6 +2022,37 @@ a {
   .next {
     font-size: 20px;
     padding: 10px;
+  }
+
+  /* --- MOBILE MODAL ADJUSTMENTS (Phone Only) --- */
+  @media (max-width: 768px) {
+    /* 1. Shrink the top image banner */
+    .modal-image-col {
+      height: 140px !important; /* Forces it to be short on mobile */
+      min-height: 0; /* Resets any previous minimums */
+    }
+
+    /* 2. Tighten the text spacing */
+    .modal-text-col {
+      padding: 20px 15px !important; /* Much less white space */
+    }
+
+    /* 3. Reduce the Name size slightly so it doesn't wrap too much */
+    .modal-text-col h2 {
+      font-size: 1.4rem;
+      margin-top: 0;
+    }
+
+    /* 4. Tighten the Organization Name */
+    .modal-org {
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* 5. Make the bio scrollable area shorter if needed */
+    .modal-text-col {
+      max-height: 60vh; /* Leaves room for the X close button */
+    }
   }
 
   /* News Card Mobile (Full Width Banner) */
@@ -2052,4 +2093,24 @@ a {
     width: 100%;
     max-width: 280px; /* Maintains the ideal card width */
   }
+}
+
+/* --- MOBILE DROPDOWN INTERACTION --- */
+@media (max-width: 768px) {
+    
+    /* 1. Disable the default hover (so it doesn't flicker) */
+    .dropdown:hover .dropdown-content {
+        display: none; 
+    }
+
+    /* 2. Enable the class-based toggle (Controlled by JS) */
+    .dropdown.active .dropdown-content {
+        display: block !important; /* Force show */
+        animation: fadeIn 0.3s ease;
+    }
+
+    /* 3. Rotate the arrow when open */
+    .dropdown.active .dropbtn i {
+        transform: rotate(180deg);
+    }
 }

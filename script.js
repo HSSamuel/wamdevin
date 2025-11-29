@@ -1122,3 +1122,30 @@ function filterResources() {
     }
   });
 }
+
+// ==========================================
+// 15. MOBILE DROPDOWN TOGGLE
+// ==========================================
+const dropdownBtns = document.querySelectorAll('.dropbtn');
+
+dropdownBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        // Only run this logic on mobile screens (768px or smaller)
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // Stop the link from jumping to top
+            
+            // 1. Get the parent <li>
+            const parentDropdown = this.parentElement;
+
+            // 2. Close other open dropdowns (Optional: nice for UX)
+            document.querySelectorAll('.dropdown').forEach(item => {
+                if (item !== parentDropdown) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // 3. Toggle the clicked one
+            parentDropdown.classList.toggle('active');
+        }
+    });
+});
