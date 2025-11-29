@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <title>Consultancy Services | WAMDEVIN</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- --- HEADER --- -->
+    <body>
+    <header class="main-header">
+      <div class="container">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="WAMDEVIN Logo" class="logo" />
+          <div class="site-name">
+            <h1>WAMDEVIN</h1>
+            <p>West African Management Development Institutes Network</p>
+          </div>
+        </div>
+        <nav class="navbar">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn">
+                About Us <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-content">
+                <a href="about.html">History & Mandate</a>
+                <a href="leadership.html">Our Leadership</a>
+              </div>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn" style="color: var(--accent-gold);">
+                Services <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-content">
+                <a href="training.html">Training</a>
+                <a href="research.html">Research</a>
+                <a href="publication.html">Publication</a>
+                <a href="consultancy.html">Consultancy</a>
+              </div>
+            </li>
+
+            <li><a href="events.html">Events</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html" class="btn-contact">Contact Us</a></li>
+          </ul>
+
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- --- PAGE BANNER --- -->
+    <section class="page-banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h2>Expert Consultancy</h2>
+        <p>
+          Drawing upon the invaluable expertise residing in member institutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- --- INTRO: POOLING EXPERTISE --- -->
+    <section class="mission-section" style="background: white">
+      <div class="container">
+        <div class="contact-grid-layout" style="align-items: center">
+          <!-- Text Side -->
+          <div class="text-justified">
+            <h3
+              style="
+                color: var(--primary-blue);
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+                text-align: center;
+              "
+            >
+              Strategic Advisory Solutions
+            </h3>
+            <div class="underline"></div>
+            <p style="margin-bottom: 15px">
+              WAMDEVIN serves as a robust reservoir of management expertise. By
+              pooling the collective knowledge of 16 leading institutes across
+              West Africa, we offer high-level consultancy services that single
+              institutions might struggle to provide alone.
+            </p>
+            <p>
+              We assist governments, parastatals, and private organizations in
+              solving complex structural problems, from public sector reforms to
+              entrepreneurship development projects funded by international
+              agencies like the ILO and COMSEC.
+            </p>
+            <div style="text-align: center; margin-top: 20px">
+              <a href="#services" class="btn btn-primary">Our Expertise</a>
+            </div>
+          </div>
+
+          <!-- Image Side -->
+          <div style="position: relative">
+            <img
+              src="images/consultancy-intro.jpg"
+              onerror="this.src='https://via.placeholder.com/600x400/003366/fff?text=Strategic+Meeting'"
+              alt="Consultancy Meeting"
+              style="
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+              "
+            />
+
+            <!-- Floating Badge -->
+            <div
+              style="
+                position: absolute;
+                bottom: -20px;
+                right: -20px;
+                background: var(--accent-gold);
+                color: var(--primary-blue);
+                padding: 20px;
+                border-radius: 8px;
+                font-weight: bold;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+              "
+            >
+              <i class="fas fa-handshake"></i> Technical Partners
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- CONSULTING AREAS --- -->
+    <section class="mission-section" id="services" style="background: #f9f9f9">
+      <div class="container">
+        <div class="section-title">
+          <h2>Consulting Focus Areas</h2>
+          <div class="underline"></div>
+          <p>Tailored solutions for organizational renewal and efficiency.</p>
+        </div>
+
+        <div class="members-grid">
+          <!-- Area 1: Org Restructuring -->
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-sitemap"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Organizational Restructuring</h3>
+              <p style="font-size: 0.9rem">
+                Redesigning organizational charts and workflows to eliminate
+                redundancy and improve service delivery in public agencies.
+              </p>
+            </div>
+          </div>
+
+          <!-- Area 2: HR Audit -->
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-user-check"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Human Resource Audit</h3>
+              <p style="font-size: 0.9rem">
+                Comprehensive staff skills assessment and manpower planning to
+                align workforce capacity with institutional mandates.
+              </p>
+            </div>
+          </div>
+
+          <!-- Area 3: Strategic Planning -->
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-bullseye"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Strategic Planning</h3>
+              <p style="font-size: 0.9rem">
+                Developing 5-year rolling plans and Vision 2030 roadmaps for
+                government ministries and MDIs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Area 4: Performance Management -->
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-tachometer-alt"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Performance Management</h3>
+              <p style="font-size: 0.9rem">
+                Setting up Key Performance Indicators (KPIs) and monitoring
+                frameworks to measure institutional success.
+              </p>
+            </div>
+          </div>
+
+          <!-- Area 5: Entrepreneurship Dev -->
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-seedling"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Entrepreneurship Projects</h3>
+              <p style="font-size: 0.9rem">
+                Implementing large-scale entrepreneurship development transfers
+                (EDT) for youth and SME growth.
+              </p>
+            </div>
+          </div>
+
+          <!-- Area 6: ICT & E-Governance -->
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-network-wired"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Information Networking</h3>
+              <p style="font-size: 0.9rem">
+                Setting up library networks (WINET) and digital databases for
+                efficient knowledge management.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- CLIENT SUCCESS (Why Choose Us) --- -->
+    <section class="mission-section" style="background: white">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose WAMDEVIN?</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="methodology-grid">
+          <div class="method-step">
+            <div class="step-number"><i class="fas fa-globe-africa"></i></div>
+            <h4>Regional Insight</h4>
+            <p>
+              We combine international best practices with deep local knowledge
+              of the West African administrative terrain.
+            </p>
+          </div>
+
+          <div class="method-step">
+            <div class="step-number"><i class="fas fa-users"></i></div>
+            <h4>Expert Pool</h4>
+            <p>
+              We deploy the best consultants from 16 top institutes, offering a
+              wider range of skills than any single firm.
+            </p>
+          </div>
+
+          <div class="method-step">
+            <div class="step-number"><i class="fas fa-check-circle"></i></div>
+            <h4>Proven Track Record</h4>
+            <p>
+              Trusted by COMSEC, ILO, and ECOWAS to execute capacity-building
+              projects across the sub-region.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- CTA --- -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Looking for Technical Assistance?</h2>
+        <p>
+          Partner with WAMDEVIN to drive sustainable change in your
+          organization.
+        </p>
+        <a href="contact.html" class="btn btn-primary">Request a Proposal</a>
+        <a href="membership.html" class="btn btn-secondary"
+          >Join Our Expert Pool</a
+        >
+      </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <img src="images/logo.png" alt="WAMDEVIN Logo" style="height: 40px; width: auto;">
+              <h3 style="margin: 0; border: none; padding: 0; color: white;">WAMDEVIN</h3>
+          </div>
+          <p>
+            Pooling expertise in management development to enhance the
+            socio-economic prosperity of West Africa.
+          </p>
+          <div class="social-links">
+            <a href="https://web.facebook.com/profile.php?id=100077341771987&sk=about" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/wamdevin" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/wamdevin" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#members">Member Institutions</a></li>
+            <li><a href="events.html">Events & Programmes</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="membership.html">Join the Network</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-top: 5px;"></i>
+              <span>
+                Administrative Staff College of Nigeria (ASCON),<br>
+                P.M.B. 1004,<br>
+                Topo-Badagry,<br>
+                Lagos State.
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-envelope" style="margin-top: 5px;"></i>
+              <span>
+                info@wamdevin.com<br>
+                wamdevin@gmail.com
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-phone" style="margin-top: 5px;"></i> 
+              <span>+234 808 473 7049</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 West African Management Development Institutes Network.
+          All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

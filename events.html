@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <title>Events & Programmes | WAMDEVIN</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="WAMDEVIN Logo" class="logo" />
+          <div class="site-name">
+            <h1>WAMDEVIN</h1>
+            <p>West African Management Development Institutes Network</p>
+          </div>
+        </div>
+        <nav class="navbar">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn"
+                >About Us <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="about.html">History & Mandate</a>
+                <a href="leadership.html">Our Leadership</a>
+              </div>
+            </li>
+
+            <li><a href="index.html#members">Member Institutions</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn"
+                >Services <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="training.html">Training</a>
+                <a href="research.html">Research</a>
+                <a href="publication.html">Publication</a>
+                <a href="consultancy.html">Consultancy</a>
+              </div>
+            </li>
+
+            <li><a href="events.html">Events</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html" class="btn-contact">Contact Us</a></li>
+          </ul>
+
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h2>Programmes & Events</h2>
+        <p>Tracking our recent milestones and planning for the future.</p>
+      </div>
+    </section>
+
+    <section class="mission-section" style="background: white">
+      <div class="container">
+        <div class="section-title">
+          <h2>Recent & Upcoming</h2>
+          <div class="underline"></div>
+          <p>Activities currently running or recently concluded in 2025.</p>
+        </div>
+
+        <div class="members-grid">
+          <div class="member-card" data-end-date="2025-11-27">
+            <div class="card-header event-header" style="position: relative">
+              <span class="status-badge ongoing" style="z-index: 2"
+                >ONGOING</span
+              >
+
+              <img
+                src="https://via.placeholder.com/600x400/003366/ffffff?text=Executive+Retreat"
+                alt="Retreat"
+                class="event-banner-img"
+                onerror="this.src='images/workshop.jpg'"
+              />
+            </div>
+            <div class="card-body">
+              <span class="country-tag">Lagos, Nigeria</span>
+              <h3>A 3-Day High-Level Networking Workshop</h3>
+              <p><strong>Date:</strong> Nov 25 - 27, 2025</p>
+              <button class="know-more-btn" onclick="openEventModal('event1')">
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="card-header event-header" style="position: relative">
+              <span class="status-badge completed" style="z-index: 2"
+                >COMPLETED</span
+              >
+
+              <img
+                src="https://via.placeholder.com/600x400/FFC107/003366?text=Partnership+Summit"
+                alt="Summit"
+                class="event-banner-img"
+                onerror="this.src='images/workshop-staff.jpg'"
+              />
+            </div>
+            <div class="card-body">
+              <span class="country-tag">Lagos, Nigeria</span>
+              <h3>A 2-Day Workshop on Performance Optimization</h3>
+              <p><strong>Date:</strong> Sept. 1 & 2, 2025</p>
+              <button class="know-more-btn" onclick="openEventModal('event2')">
+                View Summary
+              </button>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div
+              class="card-header"
+              style="
+                background: linear-gradient(135deg, #003366 0%, #00509e 100%);
+                color: white;
+              "
+            >
+              <div style="font-size: 2rem; font-weight: bold">FEB</div>
+              <div>2026</div>
+            </div>
+            <div class="card-body">
+              <h3>Work-life Balance and Organizational Commitment</h3>
+              <p>
+                <strong>Location:</strong> ASCON, Topo-Badagry, Lagos, Nigeria
+              </p>
+              <button
+                class="know-more-btn"
+                onclick="openEventModal('event2026_1')"
+              >
+                View Agenda
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-section" style="background: #f4f4f4">
+      <div class="container">
+        <div class="section-title">
+          <h2>Upcoming: 2026 Programme</h2>
+          <div class="underline"></div>
+          <p>Mark your calendars for our scheduled activities next year.</p>
+        </div>
+
+        <div class="members-grid">
+          <div class="member-card">
+            <div
+              class="card-header"
+              style="
+                background: linear-gradient(135deg, #003366 0%, #00509e 100%);
+                color: white;
+              "
+            >
+              <div style="font-size: 2rem; font-weight: bold">MARCH</div>
+              <div>2026</div>
+            </div>
+            <div class="card-body">
+              <h3>
+                Application of Modern ICT Tools for Training Delivery and
+                Evaluation
+              </h3>
+              <p style="margin-bottom: 15px">
+                <strong>Location:</strong> Virtual
+              </p>
+
+              <div style="display: flex; gap: 10px; margin-top: auto">
+                <button
+                  class="know-more-btn"
+                  onclick="openEventModal('event2026_2')"
+                  style="flex: 1; font-size: 0.8rem"
+                >
+                  View Agenda
+                </button>
+                <a
+                  href="contact.html"
+                  class="know-more-btn"
+                  style="
+                    background: var(--accent-gold);
+                    color: #003366;
+                    border: none;
+                    text-align: center;
+                    text-decoration: none;
+                    flex: 1;
+                    font-size: 0.8rem;
+                  "
+                  >Register</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div
+              class="card-header"
+              style="
+                background: linear-gradient(135deg, #003366 0%, #00509e 100%);
+                color: white;
+              "
+            >
+              <div style="font-size: 2rem; font-weight: bold">APRIL</div>
+              <div>2026</div>
+            </div>
+            <div class="card-body">
+              <h3>Advanced Mentorship Training</h3>
+              <p style="margin-bottom: 15px">
+                <strong>Location:</strong> Virtual
+              </p>
+
+              <div style="display: flex; gap: 10px; margin-top: auto">
+                <button
+                  class="know-more-btn"
+                  onclick="openEventModal('event2026_3')"
+                  style="flex: 1; font-size: 0.8rem"
+                >
+                  View Agenda
+                </button>
+                <a
+                  href="contact.html"
+                  class="know-more-btn"
+                  style="
+                    background: var(--accent-gold);
+                    color: #003366;
+                    border: none;
+                    text-align: center;
+                    text-decoration: none;
+                    flex: 1;
+                    font-size: 0.8rem;
+                  "
+                  >Register</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div
+              class="card-header"
+              style="
+                background: linear-gradient(135deg, #003366 0%, #00509e 100%);
+                color: white;
+              "
+            >
+              <div style="font-size: 2rem; font-weight: bold">JUNE</div>
+              <div>2026</div>
+            </div>
+            <div class="card-body">
+              <h3>Train-The-Trainers (Blended)</h3>
+              <p style="margin-bottom: 15px">
+                <strong>Location:</strong> Virtual & ASCON, Topo - Badagry,
+                Lagos, Nigeria
+              </p>
+
+              <div style="display: flex; gap: 10px; margin-top: auto">
+                <button
+                  class="know-more-btn"
+                  onclick="openEventModal('event2026_4')"
+                  style="flex: 1; font-size: 0.8rem"
+                >
+                  View Agenda
+                </button>
+                <a
+                  href="contact.html"
+                  class="know-more-btn"
+                  style="
+                    background: var(--accent-gold);
+                    color: #003366;
+                    border: none;
+                    text-align: center;
+                    text-decoration: none;
+                    flex: 1;
+                    font-size: 0.8rem;
+                  "
+                  >Register</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px">
+          <a
+            href="downloads/WAMDEVIN_2026_Calendar.pdf"
+            download="WAMDEVIN_2026_Calendar.pdf"
+            class="btn btn-primary"
+            style="padding: 15px 30px"
+          >
+            <i class="fas fa-file-pdf"></i> Download Full 2026 Calendar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <img src="images/logo.png" alt="WAMDEVIN Logo" style="height: 40px; width: auto;">
+              <h3 style="margin: 0; border: none; padding: 0; color: white;">WAMDEVIN</h3>
+          </div>
+          <p>
+            Pooling expertise in management development to enhance the
+            socio-economic prosperity of West Africa.
+          </p>
+          <div class="social-links">
+            <a href="https://web.facebook.com/profile.php?id=100077341771987&sk=about" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/wamdevin" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/wamdevin" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#members">Member Institutions</a></li>
+            <li><a href="events.html">Events & Programmes</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="membership.html">Join the Network</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-top: 5px;"></i>
+              <span>
+                Administrative Staff College of Nigeria (ASCON),<br>
+                P.M.B. 1004,<br>
+                Topo-Badagry,<br>
+                Lagos State.
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-envelope" style="margin-top: 5px;"></i>
+              <span>
+                info@wamdevin.com<br>
+                wamdevin@gmail.com
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-phone" style="margin-top: 5px;"></i> 
+              <span>+234 808 473 7049</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 West African Management Development Institutes Network.
+          All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+    <div
+      id="event-modal-overlay"
+      class="modal-overlay"
+      onclick="closeEventModal()"
+    >
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="closeEventModal()">&times;</span>
+
+        <div class="modal-grid">
+          <div class="modal-image-col">
+            <img
+              id="event-modal-img"
+              src="images/workshop.jpg"
+              onerror="this.src='https://via.placeholder.com/400x600?text=WAMDEVIN+Event'"
+              alt="Event Banner"
+            />
+          </div>
+
+          <div class="modal-text-col">
+            <span
+              id="event-modal-status"
+              class="status-badge"
+              style="
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 10px;
+                display: inline-block;
+              "
+              >STATUS</span
+            >
+
+            <h2
+              id="event-modal-title"
+              style="margin-top: 10px; color: var(--primary-blue)"
+            >
+              Event Title
+            </h2>
+
+            <div style="margin: 15px 0; color: #555; font-size: 0.9rem">
+              <p>
+                <i
+                  class="fas fa-calendar-alt"
+                  style="color: var(--accent-gold); width: 20px"
+                ></i>
+                <span id="event-modal-date">Date</span>
+              </p>
+              <p>
+                <i
+                  class="fas fa-map-marker-alt"
+                  style="color: var(--accent-gold); width: 20px"
+                ></i>
+                <span id="event-modal-location">Location</span>
+              </p>
+            </div>
+
+            <div class="underline-left"></div>
+
+            <div class="modal-bio" id="event-modal-desc"></div>
+
+            <div style="margin-top: 30px">
+              <a
+                href="contact.html"
+                id="event-modal-btn"
+                class="btn btn-primary"
+                >Register Interest</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

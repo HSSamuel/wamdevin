@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <title>Our Leadership | WAMDEVIN</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="WAMDEVIN Logo" class="logo" />
+          <div class="site-name">
+            <h1>WAMDEVIN</h1>
+            <p>West African Management Development Institutes Network</p>
+          </div>
+        </div>
+        <nav class="navbar">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn"
+                >About Us <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="about.html">History & Mandate</a>
+                <a href="leadership.html">Our Leadership</a>
+              </div>
+            </li>
+
+            <li><a href="index.html#members">Member Institutions</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn"
+                >Services <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="training.html">Training</a>
+                <a href="research.html">Research</a>
+                <a href="publication.html">Publication</a>
+                <a href="consultancy.html">Consultancy</a>
+              </div>
+            </li>
+
+            <li><a href="events.html">Events</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html" class="btn-contact">Contact Us</a></li>
+          </ul>
+
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h2>Executive Committee</h2>
+        <p>The distinguished leaders driving our vision for West Africa.</p>
+      </div>
+    </section>
+
+    <section class="exco-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Leadership</h2>
+          <div class="underline"></div>
+          <p>Meet the Executive Committee driving our vision.</p>
+        </div>
+
+        <div class="exco-grid">
+          <div class="exco-card">
+            <div class="exco-image">
+              <img
+                src="images/exco-1.jpg"
+                alt="President"
+                onerror="this.src='https://via.placeholder.com/150'"
+              />
+            </div>
+            <h3>Alh. Alieu K. Jarju</h3>
+            <p class="org-post">
+              Director-General, Management Development Institute (MDI), The
+              Gambia
+            </p>
+            <p class="role">President</p>
+
+            <button class="know-more-btn" onclick="openExcoModal('leader1')">
+              Know More
+            </button>
+
+            <div class="exco-socials">
+              <a
+                href="https://www.linkedin.com/in/alieu-jarju-b13804bb?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BhDESdkXxRNe9YKIv47OQQA%3D%3D"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://www.mdi.edu.gm/director-generals-message"
+                target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.mdi.edu.gm/director-generals-message"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="exco-card">
+            <div class="exco-image">
+              <img
+                src="images/exco-2.jpg"
+                alt="1st Vice President"
+                onerror="this.src='https://via.placeholder.com/150'"
+              />
+            </div>
+            <h3>Dr. (Mrs) Funke Adepoju</h3>
+            <p class="org-post">
+              Director-General, Administrative Staff College of Nigeria (ASCON),
+              Nigeria
+            </p>
+            <p class="role">1st Vice President</p>
+
+            <button class="know-more-btn" onclick="openExcoModal('leader2')">
+              Know More
+            </button>
+
+            <div class="exco-socials">
+              <a
+                href="https://www.linkedin.com/in/funkeadepoju?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B%2BT0fvId9S%2BGgF3bnf%2BW94A%3D%3D"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://www.bsg.ox.ac.uk/people/funke-adepoju"
+                target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/ffunkeadepoju/?hl=en"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="exco-card">
+            <div class="exco-image">
+              <img
+                src="images/exco-3.jpg"
+                alt="2nd Vice President"
+                onerror="this.src='https://via.placeholder.com/150'"
+              />
+            </div>
+            <h3>Professor Samuel Kwaku Bonsu</h3>
+            <p class="org-post">
+              Rector, Ghana Institute of Management and Public Administration
+              (GIMPA), Ghana
+            </p>
+            <p class="role">2nd Vice President</p>
+
+            <button class="know-more-btn" onclick="openExcoModal('leader3')">
+              Know More
+            </button>
+
+            <div class="exco-socials">
+              <a
+                href="https://gimpa.edu.gh/school_management/prof/"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://gimpa.edu.gh/school_management/prof/"
+                target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a><i class="fab fa-instagram"></i> </a>
+            </div>
+          </div>
+
+          <div class="exco-card">
+            <div class="exco-image">
+              <img
+                src="images/exco-4.jpg"
+                alt="Treasurer"
+                onerror="this.src='https://via.placeholder.com/150'"
+              />
+            </div>
+            <h3>Hon. Nee-Alah T. Varpilah</h3>
+            <p class="org-post">
+              Director-General, Liberia Institute of Publlc Administration
+              (LIPA), Liberia
+            </p>
+            <p class="role">EXCO MEMBER</p>
+
+            <button class="know-more-btn" onclick="openExcoModal('leader4')">
+              Know More
+            </button>
+
+            <div class="exco-socials">
+              <a
+                href="https://www.linkedin.com/in/nvarpilah?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BV%2B0ILhNOQHaMIZgKQbZ8qw%3D%3D"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://web.facebook.com/neealah.t.varpilah"
+                target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://www.lipaliberia.com/dg_message.html?utm_source=chatgpt.com"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="exco-card">
+            <div class="exco-image">
+              <img src="images/exco-5.jpg" alt="EXCO MEMBER
+              onerror="this.src='https://via.placeholder.com/150'" />
+            </div>
+            <h3>Dr. Gladys Njoukiang Asaah</h3>
+            <p class="org-post">
+              Regional Director Pan African Institute for Development West
+              Africa (PAID-WA), Cameroon
+            </p>
+            <p class="role">EXCO MEMBER</p>
+
+            <button class="know-more-btn" onclick="openExcoModal('leader5')">
+              Know More
+            </button>
+
+            <div class="exco-socials">
+              <a
+                href="https://www.linkedin.com/in/gladys-njoukiang-asaah-phd-a515a090?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BY6NKG02RRPq8guRaRWLjZg%3D%3D"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://projects.hpc.tools/project/221134/view"
+                target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a><i class="fab fa-instagram"></i> </a>
+            </div>
+          </div>
+
+          <div class="exco-card">
+            <div class="exco-image">
+              <img
+                src="images/exco-6.jpg"
+                alt="Treasurer"
+                onerror="this.src='https://via.placeholder.com/150'"
+              />
+            </div>
+            <h3>Professor Ezekiel Duramany-Lakkoh</h3>
+            <p class="org-post">
+              Deputy Vice Chancellor, Institute of Public Administration and
+              Management (IPAM), Sierra-Leone
+            </p>
+            <p class="role">EXCO MEMBER</p>
+
+            <button class="know-more-btn" onclick="openExcoModal('leader6')">
+              Know More
+            </button>
+
+            <div class="exco-socials">
+              <a
+                href="https://www.linkedin.com/in/ezekielduramanylakkoh?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BC%2FrLMmCTTkKYXHEs4pFbnw%3D%3D"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://web.facebook.com/eduramanylakkoh" target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a>
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="exco-card">
+            <div class="exco-image">
+              <img
+                src="images/exco-7.jpg"
+                alt="Treasurer"
+                onerror="this.src='https://via.placeholder.com/150'"
+              />
+            </div>
+            <h3>Olaolu A. Adewumi</h3>
+            <p class="org-post">
+              Executive Secretary, West African Management Development
+              Institutes Network (WAMDEVIN)
+            </p>
+            <p class="role">Executive Secretary</p>
+
+            <button class="know-more-btn" onclick="openExcoModal('leader7')">
+              Know More
+            </button>
+
+            <div class="exco-socials">
+              <a href="https://wa.me/2348087376304" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 20px;
+            "
+          >
+            <img
+              src="images/logo.png"
+              alt="WAMDEVIN Logo"
+              style="height: 40px; width: auto"
+            />
+            <h3 style="margin: 0; border: none; padding: 0; color: white">
+              WAMDEVIN
+            </h3>
+          </div>
+          <p>
+            Pooling expertise in management development to enhance the
+            socio-economic prosperity of West Africa.
+          </p>
+          <div class="social-links">
+            <a
+              href="https://web.facebook.com/profile.php?id=100077341771987&sk=about"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://x.com/wamdevin"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/wamdevin"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#members">Member Institutions</a></li>
+            <li><a href="events.html">Events & Programmes</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="membership.html">Join the Network</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-top: 5px"></i>
+              <span>
+                Administrative Staff College of Nigeria (ASCON),<br />
+                P.M.B. 1004,<br />
+                Topo-Badagry,<br />
+                Lagos State.
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-envelope" style="margin-top: 5px"></i>
+              <span>
+                info@wamdevin.com<br />
+                wamdevin@gmail.com
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-phone" style="margin-top: 5px"></i>
+              <span>+234 808 473 7049</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 West African Management Development Institutes Network.
+          All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <div
+      id="exco-modal-overlay"
+      class="modal-overlay"
+      onclick="closeExcoModal()"
+    >
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="closeExcoModal()">&times;</span>
+
+        <div class="modal-grid">
+          <div class="modal-image-col">
+            <img id="modal-img" src="" alt="Profile" />
+          </div>
+
+          <div class="modal-text-col">
+            <h2 id="modal-name">Name</h2>
+            <p id="modal-role" class="modal-role">Role</p>
+            <div class="underline-left" style="margin: 10px 0"></div>
+            <p id="modal-org" class="modal-org">Organization</p>
+
+            <div class="modal-bio">
+              <p id="modal-bio">Biography text goes here...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+    <div
+      id="exco-modal-overlay"
+      class="modal-overlay"
+      onclick="closeExcoModal()"
+    >
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="closeExcoModal()">&times;</span>
+
+        <div class="modal-grid">
+          <div class="modal-image-col">
+            <img id="modal-img" src="" alt="Profile" />
+          </div>
+
+          <div class="modal-text-col">
+            <h2 id="modal-name">Name</h2>
+            <p id="modal-role" class="modal-role">Role</p>
+            <div class="underline-left" style="margin: 10px 0"></div>
+            <p id="modal-org" class="modal-org">Organization</p>
+
+            <div class="modal-bio">
+              <p id="modal-bio">Biography text goes here...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

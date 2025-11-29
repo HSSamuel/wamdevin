@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <title>Publications | WAMDEVIN</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+   <body>
+    <header class="main-header">
+      <div class="container">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="WAMDEVIN Logo" class="logo" />
+          <div class="site-name">
+            <h1>WAMDEVIN</h1>
+            <p>West African Management Development Institutes Network</p>
+          </div>
+        </div>
+        <nav class="navbar">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn">
+                About Us <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-content">
+                <a href="about.html">History & Mandate</a>
+                <a href="leadership.html">Our Leadership</a>
+              </div>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn" style="color: var(--accent-gold);">
+                Services <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-content">
+                <a href="training.html">Training</a>
+                <a href="research.html">Research</a>
+                <a href="publication.html">Publication</a>
+                <a href="consultancy.html">Consultancy</a>
+              </div>
+            </li>
+
+            <li><a href="events.html">Events</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html" class="btn-contact">Contact Us</a></li>
+          </ul>
+
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h2>Publications & Resources</h2>
+        <p>Disseminating knowledge for capacity building and development.</p>
+      </div>
+    </section>
+
+    <section class="mission-section" style="background: white">
+      <div class="container">
+        <div class="contact-grid-layout" style="align-items: center">
+          <div class="text-justified">
+            <h3
+              style="
+                color: var(--primary-blue);
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+              "
+            >
+              The WAMDEVIN Knowledge Hub
+            </h3>
+            <div class="underline-left"></div>
+            <p style="margin-bottom: 15px">
+              WAMDEVIN prepares a wide range of publications distilled from
+              research commissioned by member institutions. Our goal is to
+              establish institutional mechanisms for disseminating and
+              exchanging relevant information within the sub-region.
+            </p>
+            <p>
+              Through our revived newsletters, journals, and handbooks, we
+              stimulate dialogue between professionals, governments, and the
+              private sector on critical management issues.
+            </p>
+            <a href="#library" class="btn btn-primary" style="margin-top: 20px"
+              >Browse Library</a
+            >
+          </div>
+
+          <div style="position: relative">
+            <img
+              src="images/publication-intro.jpg"
+              onerror="this.src='https://via.placeholder.com/600x400/003366/fff?text=Library+Archive'"
+              alt="Publications"
+              style="
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+              "
+            />
+
+            <div
+              style="
+                position: absolute;
+                bottom: -20px;
+                right: -20px;
+                background: var(--accent-gold);
+                color: var(--primary-blue);
+                padding: 20px;
+                border-radius: 8px;
+                font-weight: bold;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+              "
+            >
+              <i class="fas fa-newspaper"></i> Quarterly Updates
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-section" id="library" style="background: #f9f9f9">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Publications</h2>
+          <div class="underline"></div>
+          <p>
+            Access our repository of management journals, reports, and
+            newsletters.
+          </p>
+        </div>
+
+        <div class="members-grid">
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-bullhorn"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>News & Journal</h3>
+              <p style="font-size: 0.9rem">
+                Read the latest happenings from the Secretariat, research
+                updates, and journal abstracts.
+              </p>
+              <button class="know-more-btn" onclick="openNewsModal()">
+                View Latest News &rarr;
+              </button>
+            </div>
+          </div>
+
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-newspaper"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>WAMDEVIN Newsletter</h3>
+              <p style="font-size: 0.9rem">
+                Quarterly updates circulated to member institutions and
+                stakeholders.
+              </p>
+              <a
+                href="downloads/WAMDEVIN_Newsletter_Q4_2025.pdf"
+                download
+                target="_blank"
+                class="card-link"
+                >Download Q4 2025 Edition &rarr;</a
+              >
+            </div>
+          </div>
+
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-atlas"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Member Handbook</h3>
+              <p style="font-size: 0.9rem">
+                A comprehensive guide on WAMDEVIN operations and member
+                benefits.
+              </p>
+              <a
+                href="downloads/Member_Handbook.pdf"
+                download
+                target="_blank"
+                class="card-link"
+                >Download PDF &rarr;</a
+              >
+            </div>
+          </div>
+
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-chart-pie"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Research Reports</h3>
+              <p style="font-size: 0.9rem">
+                Findings on Graduate Employment and the Impact of
+                Entrepreneurship Programmes.
+              </p>
+              <a
+                href="downloads/Research_Report_Employment.pdf"
+                download
+                target="_blank"
+                class="card-link"
+                >Access Findings &rarr;</a
+              >
+            </div>
+          </div>
+
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-chalkboard"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Training Materials</h3>
+              <p style="font-size: 0.9rem">
+                Resources from workshops on AI for L&D and Virtual Presentation
+                skills.
+              </p>
+              <a href="resources.html" class="card-link"
+                >Browse Library &rarr;</a
+              >
+            </div>
+          </div>
+
+          <div class="member-card hover-lift">
+            <div
+              class="card-header"
+              style="background: white; height: auto; padding: 30px"
+            >
+              <i
+                class="fas fa-compass"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div class="card-body">
+              <h3>Strategic Plan (2025-2030)</h3>
+              <p style="font-size: 0.9rem">
+                The 5-year rolling plan outlining our vision for repositioning
+                the Network.
+              </p>
+              <a
+                href="downloads/Strategic_Plan_2025-2030.pdf"
+                download
+                target="_blank"
+                class="card-link"
+                >View Roadmap &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Submit to the WAMDEVIN Journal</h2>
+        <p>
+          We invite researchers and practitioners to contribute to our upcoming
+          edition.
+        </p>
+        <div style="margin-top: 20px">
+          <a href="contact.html" class="btn btn-primary">
+            <i class="fas fa-pen-nib"></i> View Submission Guidelines
+          </a>
+          <a href="contact.html" class="btn btn-secondary"
+            >Subscribe to Newsletter</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <img src="images/logo.png" alt="WAMDEVIN Logo" style="height: 40px; width: auto;">
+              <h3 style="margin: 0; border: none; padding: 0; color: white;">WAMDEVIN</h3>
+          </div>
+          <p>
+            Pooling expertise in management development to enhance the
+            socio-economic prosperity of West Africa.
+          </p>
+          <div class="social-links">
+            <a href="https://web.facebook.com/profile.php?id=100077341771987&sk=about" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/wamdevin" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/wamdevin" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#members">Member Institutions</a></li>
+            <li><a href="events.html">Events & Programmes</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="membership.html">Join the Network</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-top: 5px;"></i>
+              <span>
+                Administrative Staff College of Nigeria (ASCON),<br>
+                P.M.B. 1004,<br>
+                Topo-Badagry,<br>
+                Lagos State.
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-envelope" style="margin-top: 5px;"></i>
+              <span>
+                info@wamdevin.com<br>
+                wamdevin@gmail.com
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-phone" style="margin-top: 5px;"></i> 
+              <span>+234 808 473 7049</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 West African Management Development Institutes Network.
+          All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+    <div
+      id="news-modal-overlay"
+      class="modal-overlay"
+      onclick="closeNewsModal()"
+    >
+      <div
+        class="modal-content"
+        onclick="event.stopPropagation()"
+        style="max-width: 800px"
+      >
+        <span class="close-modal" onclick="closeNewsModal()">&times;</span>
+
+        <div
+          style="
+            padding: 25px;
+            background: var(--primary-blue);
+            color: white;
+            border-bottom: 4px solid var(--accent-gold);
+          "
+        >
+          <h2 style="margin: 0; font-size: 1.5rem">WAMDEVIN News Feed</h2>
+          <p style="margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem">
+            Latest updates from the Secretariat and Member Institutions.
+          </p>
+        </div>
+
+        <div
+          id="news-feed-container"
+          style="
+            padding: 25px;
+            max-height: 80vh;
+            overflow-y: auto;
+            background-color: #f4f4f4;
+          "
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>

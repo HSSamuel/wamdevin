@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <title>Join the Network | WAMDEVIN</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="WAMDEVIN Logo" class="logo" />
+          <div class="site-name">
+            <h1>WAMDEVIN</h1>
+            <p>West African Management Development Institutes Network</p>
+          </div>
+        </div>
+        <nav class="navbar">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn"
+                >About Us <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="about.html">History & Mandate</a>
+                <a href="leadership.html">Our Leadership</a>
+              </div>
+            </li>
+
+            <li><a href="index.html#members">Member Institutions</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropbtn"
+                >Services <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="training.html">Training</a>
+                <a href="research.html">Research</a>
+                <a href="publication.html">Publication</a>
+                <a href="consultancy.html">Consultancy</a>
+              </div>
+            </li>
+
+            <li><a href="events.html">Events</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html" class="btn-contact">Contact Us</a></li>
+          </ul>
+
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h2>Membership</h2>
+        <p>
+          Join the premier network of Management Development Institutes in West
+          Africa.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid-layout">
+          <div class="contact-info-box text-justified">
+            <h3
+              style="
+                color: var(--primary-blue);
+                margin-bottom: 15px;
+                text-align: center;
+              "
+            >
+              Why Join WAMDEVIN?
+            </h3>
+
+            <div class="underline"></div>
+
+            <p>
+              Membership offers your institution unparalleled access to regional
+              expertise, funding opportunities, and a platform to influence
+              public policy across ECOWAS nations.
+            </p>
+
+            <ul class="benefits-list">
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <div>
+                  <strong>Global & Regional Recognition</strong>
+                  <p>
+                    Gain visibility through our affiliation with the
+                    Commonwealth Secretariat and African Union bodies.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <div>
+                  <strong>Capacity Building</strong>
+                  <p>
+                    Access subsidized training for faculty and administrative
+                    staff (e.g., Train-the-Trainers).
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <div>
+                  <strong>Research Grants</strong>
+                  <p>
+                    Participate in funded multi-country research projects on
+                    governance and development.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <div>
+                  <strong>Networking</strong>
+                  <p>
+                    Collaborate with 16+ leading MDIs and business schools for
+                    staff/student exchange.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <h3
+              style="
+                color: var(--primary-blue);
+                margin-top: 30px;
+                margin-bottom: 15px;
+                text-align: center;
+              "
+            >
+              Eligibility
+            </h3>
+            <div class="underline"></div>
+            <p style="font-size: 0.9rem; color: #555">
+              Open to Management Development Institutes (MDIs), Public
+              Administration Colleges, and accredited Business Schools in West
+              Africa.
+            </p>
+          </div>
+
+          <div
+            class="contact-form-box"
+            style="border-top: 5px solid var(--accent-gold)"
+          >
+            <h3
+              style="
+                margin-bottom: 15px;
+                color: var(--primary-blue);
+                text-align: center;
+              "
+            >
+              Expression of Interest
+            </h3>
+
+            <div class="underline"></div>
+
+            <p
+              style="margin-bottom: 20px; font-size: 0.9rem; text-align: center"
+            >
+              Submit your details below. The Secretariat will contact you with
+              the official requirements.
+            </p>
+
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name"
+                  >Institution Name <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="institution_name"
+                  placeholder="e.g. Ghana Institute of Management"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email"
+                  >Official Email <span class="required">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="registrar@institute.edu"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="rep-name">Head of Institution</label>
+                <input
+                  type="text"
+                  id="rep-name"
+                  name="rep_name"
+                  placeholder="Director General / Rector"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message"
+                  >Brief Introduction <span class="required">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Tell us about your institution's core mandate..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Submit Application <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-section" style="background: #fff">
+      <div class="container">
+        <div class="section-title">
+          <h2>The Admission Process</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="methodology-grid">
+          <div class="method-step">
+            <div class="step-number">1</div>
+            <h4>Apply</h4>
+            <p>Submit the Expression of Interest form on this page.</p>
+          </div>
+          <div class="step-arrow"><i class="fas fa-angle-right"></i></div>
+
+          <div class="method-step">
+            <div class="step-number">2</div>
+            <h4>Review</h4>
+            <p>The Executive Committee reviews your institution's profile.</p>
+          </div>
+          <div class="step-arrow"><i class="fas fa-angle-right"></i></div>
+
+          <div class="method-step">
+            <div class="step-number">3</div>
+            <h4>Induction</h4>
+            <p>Upon approval, pay dues and be inducted at the AGM.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 20px;
+            "
+          >
+            <img
+              src="images/logo.png"
+              alt="WAMDEVIN Logo"
+              style="height: 40px; width: auto"
+            />
+            <h3 style="margin: 0; border: none; padding: 0; color: white">
+              WAMDEVIN
+            </h3>
+          </div>
+          <p>
+            Pooling expertise in management development to enhance the
+            socio-economic prosperity of West Africa.
+          </p>
+          <div class="social-links">
+            <a
+              href="https://web.facebook.com/profile.php?id=100077341771987&sk=about"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://x.com/wamdevin"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/wamdevin"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#members">Member Institutions</a></li>
+            <li><a href="events.html">Events & Programmes</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="membership.html">Join the Network</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-top: 5px"></i>
+              <span>
+                Administrative Staff College of Nigeria (ASCON),<br />
+                P.M.B. 1004,<br />
+                Topo-Badagry,<br />
+                Lagos State.
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-envelope" style="margin-top: 5px"></i>
+              <span>
+                info@wamdevin.com<br />
+                wamdevin@gmail.com
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-phone" style="margin-top: 5px"></i>
+              <span>+234 808 473 7049</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 West African Management Development Institutes Network.
+          All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
