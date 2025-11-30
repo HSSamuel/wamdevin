@@ -8,7 +8,7 @@ const membersData = [
     dg: "Dr (Mrs.) Funke F. Adepoju",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
-    website: "http://www.ascon.gov.org",
+    website: "http://www.ascon.gov.ng",
     logo: "images/logos/ascon.png",
   },
   {
@@ -61,7 +61,7 @@ const membersData = [
   },
   {
     name: "Nigeria Institute for Transport Technology (NITT)",
-    dg: "Dr. Bayero Salih Farah FCILT, FInsTA",
+    dg: "Dr. Bayero Salih Farah",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.nitt.gov.ng",
@@ -234,6 +234,33 @@ if (mobileMenuBtn) {
 }
 
 // ==========================================
+// 15. MOBILE DROPDOWN TOGGLE
+// ==========================================
+const dropdownBtns = document.querySelectorAll(".dropbtn");
+
+dropdownBtns.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    // Only run this logic on mobile screens (768px or smaller)
+    if (window.innerWidth <= 768) {
+      e.preventDefault(); // Stop the link from jumping to top
+
+      // 1. Get the parent <li>
+      const parentDropdown = this.parentElement;
+
+      // 2. Close other open dropdowns
+      document.querySelectorAll(".dropdown").forEach((item) => {
+        if (item !== parentDropdown) {
+          item.classList.remove("active");
+        }
+      });
+
+      // 3. Toggle the clicked one
+      parentDropdown.classList.toggle("active");
+    }
+  });
+});
+
+// ==========================================
 // 4. HERO BACKGROUND SLIDESHOW
 // ==========================================
 const heroImages = [
@@ -304,7 +331,8 @@ if (contactForm) {
     const originalBtnContent = btn.innerHTML;
 
     // 1. Loading State
-    btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+    btn.innerHTML =
+      '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
     btn.style.opacity = "0.7";
     btn.disabled = true;
 
@@ -323,9 +351,9 @@ if (contactForm) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json"
+          Accept: "application/json",
         },
-        body: json // Send the clean JSON string
+        body: json, // Send the clean JSON string
       });
 
       const result = await response.json();
@@ -341,9 +369,17 @@ if (contactForm) {
       } else {
         // 5. Formspree Specific Error (e.g. invalid email)
         if (result.errors) {
-            showToast(result.errors.map(error => error.message).join(", "), "error", "Error");
+          showToast(
+            result.errors.map((error) => error.message).join(", "),
+            "error",
+            "Error"
+          );
         } else {
-            showToast("Something went wrong. Please try again.", "error", "Submission Failed");
+          showToast(
+            "Something went wrong. Please try again.",
+            "error",
+            "Submission Failed"
+          );
         }
       }
     } catch (error) {
@@ -370,7 +406,6 @@ const excoProfiles = {
     img: "images/exco-1.jpg",
     bio: `
             <p>Alh. Alieu K. Jarju is the Director-General of the Management Development Institute (MDI), The Gambia, where he has served in senior leadership roles since the mid-2000s, including Deputy DG and Head of the IT/Computer Department. Under his leadership, MDI has expanded from a traditional training centre into a degree-awarding institution, launching accredited bachelor’s and master’s programmes in partnership with institutions such as GIMPA (Ghana).</p>
-            
             <p>He has overseen major reforms including the rollout of postgraduate programmes (e.g., Master of Public Sector Management, MSc Project Management, MA Monitoring & Evaluation), capacity-building trainings for civil servants, and high-level public lectures on governance, diplomacy, and national development. MDI has also strengthened its national and international collaborations to support public-sector modernization.</p>
         `,
   },
@@ -380,8 +415,7 @@ const excoProfiles = {
     org: "Director-General, Administrative Staff College of Nigeria (ASCON)",
     img: "images/exco-2.jpg",
     bio: `
-            <p>Dr. Funke Adepoju is the Director-General of the Administrative Staff College of Nigeria (ASCON), appointed in 2025. She has over 30 years of experience in public administration and institutional reform, with prior leadership roles including Executive Secretary of the Lagos State Water Regulatory Commission. Adepoju holds an MBA, is a doctoral student at Lagos State University, and has completed executive training at top global institutions, including Harvard and Oxford.</p>
-            
+            <p>Dr. (Mrs.) Funke Adepoju is the Director-General of the Administrative Staff College of Nigeria (ASCON), appointed in 2025. She has over 30 years of experience in public administration and institutional reform, with prior leadership roles including Executive Secretary of the Lagos State Water Regulatory Commission. Adepoju holds an MBA, is a doctoral student at Lagos State University, and has completed executive training at top global institutions, including Harvard and Oxford.</p>
             <p>As ASCON DG, she is transforming the institution into a national reform hub, emphasizing digital learning, e-governance, and public-sector capacity-building aligned with Nigeria’s civil service reform agenda. In 2025, she was named a Visiting Fellow at the Blavatnik School of Government, University of Oxford, and ASCON under her leadership received national recognition for innovation in public-sector training.</p>
         `,
   },
@@ -392,7 +426,6 @@ const excoProfiles = {
     img: "images/exco-3.jpg",
     bio: `
             <p>Prof. Samuel Kwaku Bonsu was born to Mr. Kwadwo Bonsu of Antoa and Ms. Agnes Barwuah of Parkoso. He began his education at St. Anne’s Anglican (ECM) School, Ash-Town, Kumasi, before attending Cambridge International School, Kwadaso, and later Prempeh College. He pursued higher education at Kwame Nkrumah University of Science and Technology, then earned a Bachelor’s degree in Business Administration at the University of Prince Edward Island, an MBA at Simon Fraser University, Canada, and a Ph.D. from the University of Rhode Island, USA. Prof. Bonsu lectured at SFU in 1999/2000, joined the University of North Carolina, Greensboro in 2000, and later became a tenured professor and Director of the PhD Marketing programme at Schulich School of Business, York University. At GIMPA, he served as Dean of the School of Governance and Leadership, Dean of the Business School, and Director of Academic Planning & Quality Assurance before his appointment as Rector. He is widely recognized for his principled character.</p>
-            
             <p>Prof. Bonsu has held Visiting Professor and Researcher positions at universities including University of Southern Denmark, L’Université Lille 2, Hanken School of Economics (Finland), IUBAT (Bangladesh), and KNUST. He has published groundbreaking research in prestigious journals and books, with funding from SSHRC (Canada), CODESRIA, and the Ministry of Foreign Affairs, Denmark. His scholarship has earned him global respect, and he serves on the editorial boards of several high-impact journals.</p>
         `,
   },
@@ -402,9 +435,9 @@ const excoProfiles = {
     org: "Director-General, LIPA Liberia",
     img: "images/exco-4.jpg",
     bio: `
-          <p>Nee‑Alah T. Varpilah is the Director‑General of the Liberia Institute of Public Administration (LIPA). Under his leadership, LIPA has modernized public-sector training by securing international partnerships, including becoming an Authorized Training Partner of the Project Management Institute (PMI), and signing MOUs with the Amos Claudius Sawyer Foundation and Liberian civil-service institutions.</p>
+          <p>Hon. Nee Alah T. Varpilah is the Director General of the Liberia Institute of Public Administration (LIPA). Under his leadership, LIPA has modernized public-sector training by securing international partnerships, including becoming an Authorized Training Partner of the Project Management Institute (PMI), and signing MOUs with the Amos Claudius Sawyer Foundation and Liberian civil-service institutions.</p>
             
-          <p>He has expanded LIPA’s programs to include professional certifications, governance training, and institutional reform support, strengthening Liberia’s public-sector human capital. Publicly available information focuses mainly on his institutional role rather than personal biography.</p>  
+          <p>He has expanded LIPA’s programs to include professional certifications, governance training, and institutional reform support, strengthening Liberia’s public-sector human capital. Publicly available information focuses mainly on his institutional role rather than personal biography.</p>
         `,
   },
   leader5: {
@@ -414,8 +447,7 @@ const excoProfiles = {
     img: "images/exco-5.jpg",
     bio: `
            <p>Dr. Gladys Njoukiang Asaah is the Regional Director of the Pan African Institute for Development – West Africa (PAID‑WA), based in Buea, Cameroon. She holds a Doctorate in Investment Management, an MSc in Banking and Finance, and a PGD in Economics. Before her current role, she worked as a branch manager at a microfinance institution and lectured part-time at the Catholic University Institute of Buea.</p>
-            
-            <p>Under her leadership, PAID‑WA provides diverse academic and professional programmes across West Africa, including finance, governance, ICT, health, and development studies. She has strengthened institutional partnerships, expanded capacity-building initiatives, and modernized the institute to meet regional development needs, making PAID‑WA a key centre for training and research in West Africa.</p> 
+           <p>Under her leadership, PAID‑WA provides diverse academic and professional programmes across West Africa, including finance, governance, ICT, health, and development studies. She has strengthened institutional partnerships, expanded capacity-building initiatives, and modernized the institute to meet regional development needs, making PAID‑WA a key centre for training and research in West Africa.</p> 
         `,
   },
   leader6: {
@@ -425,14 +457,13 @@ const excoProfiles = {
     img: "images/exco-6.jpg",
     bio: `
             <p>Ezekiel Duramany‑Lakkoh is the Deputy Vice‑Chancellor of the Institute of Public Administration and Management (IPAM), University of Sierra Leone, appointed in 2025. He previously served as Dean of the Faculty of Accounting & Finance at IPAM and holds a PhD in finance/accounting. He is also active in the private sector as CEO of JIT Capital Group and involved in media through AYV Media.</p>
-            
             <p>Duramany‑Lakkoh has contributed to expanding IPAM’s academic programmes, strengthening institutional infrastructure, and promoting digital and ICT-based learning. His research focuses on finance, public-sector management, and economic development. He is recognized for combining academic scholarship with practical leadership to advance education, governance, and financial capacity in Sierra Leone and West Africa.</p>
         `,
   },
   leader7: {
     name: "Olaolu A. Adewumi",
     role: "EXECUTIVE SECRETARY",
-    org: "WAMDEVIN Secretariat",
+    org: "Executive Secretary, WAMDEVIN Secretariat",
     img: "images/exco-7.jpg",
     bio: `
             <p style="text-align: justify;">Olaolu A. Adewumi is the Executive Secretary of the West African Management Development Institutes Network (WAMDEVIN), appointed in 2025. He has over 30 years of experience with WAMDEVIN, previously serving as Deputy Director of Studies. He holds a B.Sc. in Government & Public Administration, an MPA, and is pursuing a Ph.D. Adewumi is a recognized management professional and fellow/member of several professional bodies. As Executive Secretary, he leads WAMDEVIN’s capacity-building, research, training, and policy-consultancy initiatives across West Africa.</p>
@@ -443,7 +474,6 @@ const excoProfiles = {
 function openExcoModal(leaderId) {
   const modal = document.getElementById("exco-modal-overlay");
   const data = excoProfiles[leaderId];
-
   if (data && modal) {
     document.getElementById("modal-img").src = data.img;
     document.getElementById("modal-name").innerText = data.name;
@@ -702,7 +732,7 @@ function closeEventModal() {
 }
 
 // ==========================================
-// 10. AUTO-UPDATE EVENT STATUS (Time Check)
+// 10. AUTO-UPDATE EVENT STATUS
 // ==========================================
 function checkEventDates() {
   const cards = document.querySelectorAll(".member-card[data-end-date]");
@@ -719,7 +749,6 @@ function checkEventDates() {
         badge.innerText = "COMPLETED";
         badge.className = "status-badge completed";
       }
-
       const actionBtn = card.querySelector("a.know-more-btn");
       if (actionBtn) {
         actionBtn.innerText = "Access Resources";
@@ -735,9 +764,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 11. NEWS FEED LOGIC (Updated with Conditional Links)
+// 11. NEWS FEED LOGIC
 // ==========================================
-
 const newsData = [
   {
     title:
@@ -746,7 +774,7 @@ const newsData = [
     category: "Training & 38th Anniversary",
     img: "images/anniversary.jpg",
     link: "https://independent.ng/wamdevin-holds-high-level-workshop-elects-new-president/?utm_source=chatgpt.com",
-    content: `WAMDEVIN held a three-day high-level workshop at CMD Lagos, bringing together senior officials and experts from across West Africa to strengthen cooperation, leadership capacity, and institutional excellence. Outgoing President Hon. Nee-Alah Varpilah emphasized collaboration as key to tackling shared challenges like governance reforms and digital transformation. The event which also marked WAMDEVIN's 38th anniversary, featured technical and peer-learning sessions and confirmed Mr. Alieu Jarju, DG of MDI/CSU The Gambia, as the new WAMDEVIN President. He pledged to deepen regional collaboration, strengthen institutional capacity, and expand partnerships. CMD and member institutions were commended, while Executive Secretary Olaolu Adewumi reaffirmed WAMDEVIN’s commitment to capacity building across the region.`,
+    content: `WAMDEVIN held a three-day high-level workshop at CMD Lagos, bringing together senior officials and experts from across West Africa to strengthen cooperation, leadership capacity, and institutional excellence. The event which also marked WAMDEVIN's 38th anniversary, featured technical and peer-learning sessions and confirmed Mr. Alieu Jarju, DG of MDI/CSU The Gambia, as the new WAMDEVIN President. He pledged to deepen regional collaboration, strengthen institutional capacity, and expand partnerships. CMD and member institutions were commended, while Executive Secretary Olaolu Adewumi reaffirmed WAMDEVIN’s commitment to capacity building across the region.`,
   },
   {
     title: "New Executive Secretary Assumes Office",
@@ -787,8 +815,7 @@ function openNewsModal() {
   const container = document.getElementById("news-feed-container");
 
   if (modal && container) {
-    container.innerHTML = ""; // Clear previous content
-
+    container.innerHTML = "";
     newsData.forEach((news) => {
       const newsItem = document.createElement("div");
       newsItem.style.cssText = `
@@ -801,8 +828,6 @@ function openNewsModal() {
                 overflow: hidden;
                 display: block; 
             `;
-
-      // CONDITIONAL LINK LOGIC
       let linkHTML = "";
       if (news.link && news.link !== "" && news.link !== "#") {
         linkHTML = `
@@ -810,26 +835,18 @@ function openNewsModal() {
                 Read Full Story &rarr;
             </a>`;
       }
-
       newsItem.innerHTML = `
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <span style="background: #eef2f6; color: var(--primary-blue); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase;">${news.category}</span>
                     <span style="font-size: 0.8rem; color: #888;">${news.date}</span>
                 </div>
-                
                 <h3 style="color: #333; margin-bottom: 15px; font-size: 1.2rem; line-height: 1.4;">${news.title}</h3>
-                
-                <img src="${news.img}" alt="${news.title}" 
-                     class="news-card-img"
-                     onerror="this.style.display='none'">
-                
+                <img src="${news.img}" alt="${news.title}" class="news-card-img" onerror="this.style.display='none'">
                 <p style="color: #555; line-height: 1.6; font-size: 0.95rem; text-align: justify; margin-bottom: 15px;">${news.content}</p>
-                
                 ${linkHTML}
             `;
       container.appendChild(newsItem);
     });
-
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
   }
@@ -844,7 +861,7 @@ function closeNewsModal() {
 }
 
 // ==========================================
-// 12. LIGHTBOX GALLERY LOGIC
+// 12. LIGHTBOX GALLERY LOGIC (Auto-Slideshow)
 // ==========================================
 const photoCollections = {
   retreat: [
@@ -961,6 +978,7 @@ const photoCollections = {
 
 let currentGalleryId = "";
 let lightboxIndex = 0;
+let slideTimer;
 
 function openLightbox(galleryId) {
   const gallery = photoCollections[galleryId];
@@ -971,10 +989,11 @@ function openLightbox(galleryId) {
     lightboxIndex = 0;
 
     updateLightboxImage();
+
     lightboxOverlay.style.display = "block";
     document.body.style.overflow = "hidden";
-  } else {
-    // console.error("Gallery not found or HTML missing for ID: " + galleryId);
+
+    startSlideshow(); // Start the timer
   }
 }
 
@@ -983,14 +1002,22 @@ function closeLightbox() {
   if (lightboxOverlay) {
     lightboxOverlay.style.display = "none";
     document.body.style.overflow = "auto";
+    stopSlideshow(); // Kill the timer immediately
   }
 }
 
 function changeSlide(n) {
+  // 1. STOP the timer immediately so it doesn't double-jump
+  stopSlideshow();
+
   const gallery = photoCollections[currentGalleryId];
   if (gallery) {
+    // 2. Change the slide
     lightboxIndex = (lightboxIndex + n + gallery.length) % gallery.length;
     updateLightboxImage();
+
+    // 3. RESTART the timer (User is done clicking, resume auto-play)
+    startSlideshow();
   }
 }
 
@@ -1005,8 +1032,26 @@ function updateLightboxImage() {
   } / ${gallery.length}`;
 }
 
+// --- TIMER FUNCTIONS ---
+
+function startSlideshow() {
+  clearInterval(slideTimer); // Safety clear
+  slideTimer = setInterval(() => {
+    // We call the update logic directly to avoid infinite loops
+    const gallery = photoCollections[currentGalleryId];
+    if (gallery) {
+      lightboxIndex = (lightboxIndex + 1) % gallery.length;
+      updateLightboxImage();
+    }
+  }, 3000); // 3 Seconds
+}
+
+function stopSlideshow() {
+  clearInterval(slideTimer);
+}
+
 // ==========================================
-// 13. RESOURCE MODAL LOGIC
+// 13. RESOURCE DETAILS MODAL
 // ==========================================
 const resourcesData = {
   res1: {
@@ -1050,17 +1095,13 @@ const resourcesData = {
 function openResourceModal(resId) {
   const modal = document.getElementById("res-modal-overlay");
   const data = resourcesData[resId];
-
   if (data && modal) {
     document.getElementById("res-title").innerText = data.title;
     document.getElementById("res-desc").innerText = data.desc;
     document.getElementById(
       "res-icon-container"
     ).innerHTML = `<i class="fas ${data.icon}"></i>`;
-
-    const btn = document.getElementById("res-download-btn");
-    btn.href = data.file;
-
+    document.getElementById("res-download-btn").href = data.file;
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
   }
@@ -1124,28 +1165,80 @@ function filterResources() {
 }
 
 // ==========================================
-// 15. MOBILE DROPDOWN TOGGLE
+// 16. NEWSLETTER SUBSCRIPTION LOGIC
 // ==========================================
-const dropdownBtns = document.querySelectorAll('.dropbtn');
+const newsletterForm = document.getElementById("newsletterForm");
 
-dropdownBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        // Only run this logic on mobile screens (768px or smaller)
-        if (window.innerWidth <= 768) {
-            e.preventDefault(); // Stop the link from jumping to top
-            
-            // 1. Get the parent <li>
-            const parentDropdown = this.parentElement;
+if (newsletterForm) {
+  newsletterForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-            // 2. Close other open dropdowns (Optional: nice for UX)
-            document.querySelectorAll('.dropdown').forEach(item => {
-                if (item !== parentDropdown) {
-                    item.classList.remove('active');
-                }
-            });
+    const btn = newsletterForm.querySelector("button");
+    const originalText = btn.innerText;
+    const emailInput = document.getElementById("sub-email").value;
 
-            // 3. Toggle the clicked one
-            parentDropdown.classList.toggle('active');
-        }
-    });
+    btn.innerText = "Subscribing...";
+    btn.disabled = true;
+
+    // Note: You can use the same Formspree ID or create a new one specifically for Newsletters
+    const formData = new FormData();
+    formData.append("email", emailInput);
+    formData.append("subject", "Newsletter Subscription");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mgvbqbda", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        showToast(
+          "Welcome to the community! Subscription successful.",
+          "success",
+          "Subscribed"
+        );
+        newsletterForm.reset();
+      } else {
+        showToast("Could not subscribe. Please try again.", "error", "Error");
+      }
+    } catch (error) {
+      showToast("Check your internet connection.", "error", "Network Error");
+    } finally {
+      btn.innerText = originalText;
+      btn.disabled = false;
+    }
+  });
+}
+
+// ==========================================
+// 17. DARK MODE TOGGLE
+// ==========================================
+
+// 1. Create the toggle button
+const themeBtn = document.createElement("button");
+themeBtn.id = "theme-toggle";
+themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; // Default icon
+themeBtn.title = "Toggle Dark Mode";
+document.body.appendChild(themeBtn);
+
+// 2. Check for saved preference
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; // Switch to sun icon
+}
+
+// 3. Add Click Event
+themeBtn.addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+
+  // Logic to switch icon and save preference
+  if (document.body.classList.contains("dark-mode")) {
+    themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    localStorage.setItem("theme", "light");
+  }
 });

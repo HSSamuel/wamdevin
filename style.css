@@ -1663,13 +1663,34 @@ a {
   backdrop-filter: blur(5px);
 }
 
+/* Find this section in style.css and update it */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  /* --- ADD THIS LINE --- */
+  z-index: 11000; /* Ensures buttons are ALWAYS clickable above the image */
+}
+
 /* =========================================
    SCROLL TO TOP BUTTON
    ========================================= */
 #scrollToTopBtn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 10px;
+  right: 10px;
   z-index: 9999; /* Ensures it sits on top of everything */
   border: none;
   outline: none;
@@ -1864,7 +1885,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Start from top */
-    padding-top: 80px; /* Push links down so they aren't hidden by the X button */
+    padding-top: 10px; /* Push links down so they aren't hidden by the X button */
     box-shadow: none;
     transform: translateY(-100%); /* Slide in from top */
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2097,20 +2118,518 @@ a {
 
 /* --- MOBILE DROPDOWN INTERACTION --- */
 @media (max-width: 768px) {
-    
-    /* 1. Disable the default hover (so it doesn't flicker) */
-    .dropdown:hover .dropdown-content {
-        display: none; 
-    }
+  /* 1. Disable the default hover (so it doesn't flicker) */
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
 
-    /* 2. Enable the class-based toggle (Controlled by JS) */
-    .dropdown.active .dropdown-content {
-        display: block !important; /* Force show */
-        animation: fadeIn 0.3s ease;
-    }
+  /* 2. Enable the class-based toggle (Controlled by JS) */
+  .dropdown.active .dropdown-content {
+    display: block !important; /* Force show */
+    animation: fadeIn 0.3s ease;
+  }
 
-    /* 3. Rotate the arrow when open */
-    .dropdown.active .dropbtn i {
-        transform: rotate(180deg);
-    }
+  /* 3. Rotate the arrow when open */
+  .dropdown.active .dropbtn i {
+    transform: rotate(180deg);
+  }
+}
+
+/* --- INFINITE PARTNER SLIDER --- */
+
+.slider-container {
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Gradient Masks (Fades the edges so logos appear/disappear smoothly) */
+.slider-container::before,
+.slider-container::after {
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 100px;
+  z-index: 2;
+}
+
+.slider-container::before {
+  left: 0;
+  top: 0;
+  background: linear-gradient(to right, white 0%, transparent 100%);
+}
+
+.slider-container::after {
+  right: 0;
+  top: 0;
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+
+/* The Moving Track */
+.slider-track {
+  display: flex;
+  width: calc(
+    200px * 16
+  ); /* Width of slide (200) * Number of slides (8 real + 8 duplicates) */
+  animation: scroll 30s linear infinite;
+}
+
+.slide {
+  height: 100px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.slide img {
+  width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: grayscale(100%); /* Makes logos grey for a professional look */
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+/* Color on Hover */
+.slide img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Keyframe Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 8));
+  } /* Move left by width of the 8 original slides */
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+  .slider-track {
+    animation: scroll 20s linear infinite; /* Faster on mobile */
+  }
+}
+
+/* --- PARTNERS SLIDER MOBILE FIX --- */
+.slider-container {
+  height: 80px; /* Shorter container on phone */
+}
+
+.slider-container::before,
+.slider-container::after {
+  width: 50px; /* Smaller fade area so logos are more visible */
+}
+
+.slide {
+  width: 140px; /* Smaller logos */
+  height: 80px;
+}
+
+.slide img {
+  max-height: 50px; /* limit logo size */
+}
+
+/* --- INTRO BADGES (Training/Research/Consultancy) --- */
+/* Fixes the "Floating Badge" being cut off on mobile */
+.mission-section .contact-grid-layout div[style*="position: absolute"] {
+  right: 0 !important; /* Bring it inside the screen */
+  bottom: -15px !important;
+  left: auto !important; /* Prevent conflicts */
+  max-width: 200px; /* Smaller width */
+  padding: 15px !important;
+  font-size: 0.85rem;
+}
+
+/* Adjust the container to make room for the badge at the bottom */
+.mission-section .contact-grid-layout div[style*="position: relative"] {
+  margin-bottom: 30px;
+}
+
+/* --- NEWSLETTER SECTION --- */
+.newsletter-section {
+  background-color: var(--accent-gold); /* Gold background to pop */
+  padding: 40px 0;
+  color: var(--primary-blue);
+}
+
+.newsletter-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.newsletter-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  color: var(--primary-blue);
+  font-weight: 800;
+}
+
+.newsletter-text p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  max-width: 500px;
+}
+
+.newsletter-form input {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  flex: 1; /* Takes up available space */
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-dark {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  white-space: nowrap; /* Prevents text breaking */
+}
+
+.btn-dark:hover {
+  transform: scale(1.05);
+  background-color: #002244; /* Darker blue */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .newsletter-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .newsletter-form {
+    width: 100%;
+    flex-direction: column;
+  }
+  .newsletter-form input,
+  .btn-dark {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   16. ROBUST DARK MODE SYSTEM
+   ========================================= */
+
+/* 1. The Toggle Button */
+#theme-toggle {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 10000; /* Highest priority */
+  border: none;
+  outline: none;
+  background-color: var(--primary-blue);
+  color: white;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-gold);
+  color: var(--primary-blue);
+}
+
+/* 2. GLOBAL BACKGROUND OVERRIDES */
+/* We use !important to override inline HTML styles (style="background: white") */
+body.dark-mode,
+body.dark-mode .main-header,
+body.dark-mode section,
+body.dark-mode .mission-section,
+body.dark-mode .members-section,
+body.dark-mode .contact-section,
+body.dark-mode .metrics-section,
+body.dark-mode .cta-section,
+body.dark-mode .footer-bottom {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+/* 3. CONTAINER OVERRIDES (Cards, Boxes, Menus) */
+/* These need to be slightly lighter than the background to stand out */
+body.dark-mode .member-card,
+body.dark-mode .mv-card,
+body.dark-mode .obj-card,
+body.dark-mode .es-card,
+body.dark-mode .method-step,
+body.dark-mode .contact-info-box,
+body.dark-mode .contact-form-box,
+body.dark-mode .modal-content,
+body.dark-mode .gallery-item,
+body.dark-mode .accordion-item,
+body.dark-mode .accordion-header,
+body.dark-mode .compact-card,
+body.dark-mode .country-menu,
+body.dark-mode .dropdown-content,
+body.dark-mode .nav-links {
+  background-color: #1e1e1e !important; /* Dark Grey */
+  border-color: #333 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 4. TEXT COLOR FIXES */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode strong,
+body.dark-mode .site-name h1,
+body.dark-mode .country-title {
+  color: #fff !important;
+}
+
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span,
+body.dark-mode .site-name p,
+body.dark-mode a {
+  color: #ccc !important;
+}
+
+/* Highlight Gold Text */
+body.dark-mode .role,
+body.dark-mode .accent-text,
+body.dark-mode i {
+  color: var(--accent-gold) !important;
+}
+
+/* 5. INPUTS & FORMS */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2d2d2d !important;
+  border: 1px solid #444 !important;
+  color: white !important;
+}
+
+/* 6. SPECIFIC CARD HEADER FIXES */
+body.dark-mode .card-header,
+body.dark-mode .compact-header {
+  background: #252525 !important; /* Darker header for cards */
+  border-bottom: 1px solid #333 !important;
+}
+
+/* 7. DROPDOWN LINKS */
+body.dark-mode .dropdown-content a:hover {
+  background-color: #333 !important;
+  color: var(--accent-gold) !important;
+}
+
+/* 8. ACCORDION BODY */
+body.dark-mode .accordion-body {
+  background-color: #121212 !important;
+}
+
+/* =========================================
+   DARK MODE: LEADERSHIP CARDS FIX
+   ========================================= */
+
+/* 1. Card Background & Shadow */
+body.dark-mode .exco-card {
+  background-color: #1e1e1e !important; /* Dark Grey */
+  border: 1px solid #333 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  /* Keep the blue top accent or switch to gold? Let's keep blue for identity */
+  border-top: 5px solid var(--primary-blue) !important;
+}
+
+/* 2. Profile Image Border (Crucial Fix) */
+/* In light mode, this is white. In dark mode, it must match the dark card. */
+body.dark-mode .exco-image {
+  border-color: #1e1e1e !important;
+  box-shadow: 0 0 0 1px #444 !important; /* Subtle outer ring */
+}
+
+/* 3. Text Colors */
+body.dark-mode .exco-card h3 {
+  color: #ffffff !important; /* Bright White Name */
+}
+
+body.dark-mode .org-post {
+  color: #bbbbbb !important; /* Light Grey Job Title */
+}
+
+/* 4. The Role Pill (President/VP etc.) */
+body.dark-mode .role {
+  background-color: rgba(
+    255,
+    193,
+    7,
+    0.15
+  ) !important; /* Faint Gold background */
+  color: var(--accent-gold) !important; /* Bright Gold Text */
+}
+
+/* 5. Social Icons */
+body.dark-mode .exco-socials a {
+  background-color: #2d2d2d !important;
+  border-color: #444 !important;
+  color: #ccc !important;
+}
+
+body.dark-mode .exco-socials a:hover {
+  background-color: var(--accent-gold) !important;
+  color: var(--primary-blue) !important;
+  border-color: var(--accent-gold) !important;
+}
+
+/* 6. Know More Button High Contrast */
+body.dark-mode .know-more-btn {
+  background-color: #2d2d2d !important;
+  border: 1px solid var(--accent-gold) !important;
+  color: var(--accent-gold) !important;
+}
+
+body.dark-mode .know-more-btn:hover {
+  background-color: var(--accent-gold) !important;
+  color: #000 !important;
+}
+
+/* =========================================
+   PREMIUM TESTIMONIAL CARDS
+   ========================================= */
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px; /* Softer, modern curves */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Keeps the large icon inside */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Hover Effect: Lift & Gold Accent */
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 51, 102, 0.1);
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+/* The "Watermark" Quote Icon */
+.quote-icon {
+  font-size: 8rem; /* Huge size */
+  color: rgba(0, 51, 102, 0.03); /* Very faint blue */
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  z-index: 0; /* Sits behind the text */
+  font-family: sans-serif;
+  transition: transform 0.4s ease;
+}
+
+.testimonial-card:hover .quote-icon {
+  transform: rotate(-10deg) scale(1.1); /* Moves slightly on hover */
+  color: rgba(255, 193, 7, 0.1); /* Turns faint gold */
+}
+
+/* The Text */
+.feedback-text {
+  font-size: 1.05rem;
+  color: #444;
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1; /* Sits on top of the watermark */
+}
+
+/* The Author Area */
+.feedback-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 1;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0; /* Clean separator line */
+}
+
+.feedback-author img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px var(--accent-gold); /* Gold ring around photo */
+}
+
+.feedback-author h4 {
+  font-size: 1rem;
+  color: var(--primary-blue);
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+
+.feedback-author span {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* --- DARK MODE SUPPORT --- */
+body.dark-mode .testimonial-card {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333 !important;
+}
+
+body.dark-mode .feedback-text {
+  color: #ccc !important;
+}
+
+body.dark-mode .feedback-author {
+  border-top-color: #333 !important;
+}
+
+body.dark-mode .quote-icon {
+  color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .feedback-author img {
+  border-color: #1e1e1e; /* Ring matches dark card background */
 }
