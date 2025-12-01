@@ -40,24 +40,18 @@
         </div>
         <nav class="navbar">
           <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html">Home</a></li>
 
             <li class="dropdown">
-              <a href="#" class="dropbtn"
-                >About Us <i class="fas fa-chevron-down"></i
-              ></a>
+              <a href="#" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
               <div class="dropdown-content">
                 <a href="about.html">History & Mandate</a>
                 <a href="leadership.html">Our Leadership</a>
-              </div>
+                <a href="index.html#members">Member Institutions</a> </div>
             </li>
 
-            <li><a href="index.html#members">Member Institutions</a></li>
-
             <li class="dropdown">
-              <a href="#" class="dropbtn"
-                >Services <i class="fas fa-chevron-down"></i
-              ></a>
+              <a href="#" class="dropbtn">Services <i class="fas fa-chevron-down"></i></a>
               <div class="dropdown-content">
                 <a href="training.html">Training</a>
                 <a href="research.html">Research</a>
@@ -67,7 +61,11 @@
             </li>
 
             <li><a href="events.html">Events</a></li>
+
+            <li><a href="alumni.html">Alumni</a></li>
+
             <li><a href="resources.html">Resources</a></li>
+
             <li><a href="contact.html" class="btn-contact">Contact Us</a></li>
           </ul>
 
@@ -77,6 +75,22 @@
         </nav>
       </div>
     </header>
+
+    <div class="ticker-wrapper">
+        <div class="ticker-label">Did You Know?</div>
+        <div class="ticker-track">
+            <div class="ticker-content">
+                <span><i class="fas fa-lightbulb"></i> WAMDEVIN was founded in November 1987 following a Roundtable Conference at ASCON, Nigeria.</span>
+                <span><i class="fas fa-lightbulb"></i> The Network currently has 16 Member Institutions across Nigeria, Ghana, Sierra Leone, The Gambia, Liberia, and Cameroon.</span>
+                <span><i class="fas fa-lightbulb"></i> Our Permanent Secretariat was relocated from GIMPA (Ghana) to ASCON (Nigeria) in January 1990.</span>
+                <span><i class="fas fa-lightbulb"></i> WAMDEVIN is a member of the International Federation of Training and Development Organisations (IFTDO).</span>
+                <span><i class="fas fa-lightbulb"></i> WAMDEVIN was established under the joint auspices of the Commonwealth Secretariat, EDI, and the ILO.</span>
+                <span><i class="fas fa-lightbulb"></i> We are a proud member of the European Foundation for Management Development (EFMD) and AAPAM.</span>
+                <span><i class="fas fa-lightbulb"></i> Membership is open to Management Development Institutes (MDIs) and Business Schools in both the public and private sectors.</span>
+                <span><i class="fas fa-lightbulb"></i> Our mandate includes facilitating faculty staff exchange programmes to strengthen institutional capabilities.</span>
+            </div>
+        </div>
+    </div>
 
     <section class="hero">
       <div class="hero-overlay"></div>
@@ -570,17 +584,64 @@
       </div>
     </section>
 
-    <section class="newsletter-section">
+    <section class="mission-section" style="background: #f9f9f9; padding: 80px 0;">
       <div class="container">
-        <div class="newsletter-content">
-            <div class="newsletter-text">
-                <h3>Stay Connected with WAMDEVIN</h3>
-                <p>Join our mailing list to receive Quarterly Newsletter, training updates, and policy briefs.</p>
+        <div class="community-grid">
+            
+            <div class="comm-card news-card-style">
+                <div class="comm-content">
+                    <div class="comm-header">
+                        <div class="icon-box"><i class="fas fa-envelope-open-text"></i></div>
+                        <h3>Stay Connected</h3>
+                    </div>
+                    <p>Subscribe to our quarterly newsletter for the latest training updates, policy briefs, and opportunities from the Secretariat.</p>
+                    
+                    <form id="newsletterForm" class="enhanced-form">
+                        <input type="email" id="sub-email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn-floating">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+                <i class="fas fa-envelope bg-icon"></i>
             </div>
-            <form id="newsletterForm" class="newsletter-form">
-                <input type="email" id="sub-email" name="email" placeholder="Enter your email address" required>
-                <button type="submit" class="btn btn-dark">Subscribe Now</button>
-            </form>
+
+            <div class="comm-card poll-card-style" id="poll-container">
+                <div class="comm-content">
+                    <div class="comm-header">
+                        <div class="icon-box"><i class="fas fa-poll"></i></div>
+                        <div style="flex-grow: 1; display: flex; justify-content: space-between; align-items: center;">
+                            <h3>Poll of the Month</h3>
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-bottom: 20px; font-weight: 600;">Which training area is most critical for your institution right now?</p>
+                    
+                    <form id="pollForm" onsubmit="submitPoll(event)" class="poll-form-grid">
+                        <label class="poll-option-btn">
+                            <input type="radio" name="topic" value="AI in L&D" required> 
+                            <span>AI in L&D</span>
+                        </label>
+                        <label class="poll-option-btn">
+                            <input type="radio" name="topic" value="Grant Writing"> 
+                            <span>Grant Writing</span>
+                        </label>
+                        <label class="poll-option-btn">
+                            <input type="radio" name="topic" value="Women Leadership"> 
+                            <span>Women Leadership</span>
+                        </label>
+                        <label class="poll-option-btn">
+                            <input type="radio" name="topic" value="Digital Govt"> 
+                            <span>Digital Govt</span>
+                        </label>
+                        
+                        <button type="submit" class="btn btn-primary" style="grid-column: span 2; margin-top: 10px;">Vote Now</button>
+                    </form>
+                </div>
+                <i class="fas fa-chart-pie bg-icon"></i>
+            </div>
+
         </div>
       </div>
     </section>
@@ -615,7 +676,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="index.html#members">Member Institutions</a></li>
-            <li><a href="events.html">Events & Programmes</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="alumni.html">Alumni Network</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="membership.html">Join the Network</a></li>
           </ul>

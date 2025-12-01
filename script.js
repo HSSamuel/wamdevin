@@ -1,11 +1,12 @@
-// ==========================================
-// 1. MEMBER INSTITUTIONS DATA (DASHBOARD LOGIC)
+/// ==========================================
+// 1. MEMBER INSTITUTIONS DATA (Updated with Titles)
 // ==========================================
 const membersData = [
   // --- NIGERIA 🇳🇬 ---
   {
     name: "Administrative Staff College of Nigeria (ASCON)",
     dg: "Dr (Mrs.) Funke F. Adepoju",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.ascon.gov.ng",
@@ -14,6 +15,7 @@ const membersData = [
   {
     name: "Centre for Management Development (CMD)",
     dg: "Mr. Bitrus D. Chinoko",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.cmd.gov.ng",
@@ -22,6 +24,7 @@ const membersData = [
   {
     name: "Lagos State Public Service Staff Development Center (PSSDC)",
     dg: "Mr. Adekunmilola Adio-Moses",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.pssdc.ng",
@@ -30,6 +33,7 @@ const membersData = [
   {
     name: "Agricultural & Rural Management Training Institute (ARMTI)",
     dg: "Dr. Olufemi Oladunni",
+    roleTitle: "Executive General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.armti.gov.ng",
@@ -38,6 +42,7 @@ const membersData = [
   {
     name: "Public Service Institute of Nigeria (PSIN)",
     dg: "Barrister Imeh Okon",
+    roleTitle: "Administrator/CEO",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.psin.gov.ng",
@@ -46,6 +51,7 @@ const membersData = [
   {
     name: "Industrial Training Fund (ITF)",
     dg: "Dr Afiz Ogun Oluwatoyin",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.itf.gov.ng",
@@ -54,6 +60,7 @@ const membersData = [
   {
     name: "Michael Imoudu National Institute for Labour Studies (MINILS)",
     dg: "Comrade Issa Aremu",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.minils.gov.ng",
@@ -62,6 +69,7 @@ const membersData = [
   {
     name: "Nigeria Institute for Transport Technology (NITT)",
     dg: "Dr. Bayero Salih Farah",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.nitt.gov.ng",
@@ -70,6 +78,7 @@ const membersData = [
   {
     name: "Nigerian College of Aviation Technology (NCAT)",
     dg: "Dr. Danjuma A. Ismaila",
+    roleTitle: "Rector/Chief Executive Officer",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.ncat.gov.ng",
@@ -78,6 +87,7 @@ const membersData = [
   {
     name: "Simeon Adebo Staff Development Centre (SASDC)",
     dg: "Mrs S. O. Okedum",
+    roleTitle: "Executive Secretary",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.sasdc.oyostate.gov.ng",
@@ -88,6 +98,7 @@ const membersData = [
   {
     name: "Ghana Institute of Management and Public Administration (GIMPA)",
     dg: "Prof. Samuel Kwaku Bonsu",
+    roleTitle: "Rector", // SPECIFIC TITLE
     country: "Ghana",
     flagUrl: "https://flagcdn.com/w40/gh.png",
     website: "http://www.gimpa.edu.gh",
@@ -96,6 +107,7 @@ const membersData = [
   {
     name: "Management Development and Productivity Institute (MDPI)",
     dg: "Professor Elijah Yendaw",
+    roleTitle: "Director-General",
     country: "Ghana",
     flagUrl: "https://flagcdn.com/w40/gh.png",
     website: "http://www.mdpi.gov.gh",
@@ -106,6 +118,7 @@ const membersData = [
   {
     name: "Institute of Public Administration and Management (IPAM)",
     dg: "Prof. Ezekiel Duramany-Lakkoh",
+    roleTitle: "Deputy Vice-Chancellor", // SPECIFIC TITLE
     country: "Sierra Leone",
     flagUrl: "https://flagcdn.com/w40/sl.png",
     website: "http://www.usl.edu.sl",
@@ -116,6 +129,7 @@ const membersData = [
   {
     name: "Management Development Institute (MDI)",
     dg: "Mr. Alieu K. Jarju",
+    roleTitle: "Director-General",
     country: "Gambia",
     flagUrl: "https://flagcdn.com/w40/gm.png",
     website: "http://www.mdi.edu.gm",
@@ -126,6 +140,7 @@ const membersData = [
   {
     name: "Liberia Institute of Public Administration (LIPA)",
     dg: "Hon. Nee-Alah T. Varpilah",
+    roleTitle: "Director-General",
     country: "Liberia",
     flagUrl: "https://flagcdn.com/w40/lr.png",
     website: "http://www.lipaliberia.com",
@@ -136,6 +151,7 @@ const membersData = [
   {
     name: "Pan African Institute for Development (PAID-WA)",
     dg: "Dr. Gladys Njoukiang Asaah",
+    roleTitle: "Regional Director", // SPECIFIC TITLE
     country: "Cameroon",
     flagUrl: "https://flagcdn.com/w40/cm.png",
     website: "http://www.paidwestafrica.org",
@@ -192,6 +208,9 @@ function renderCountryMembers(countryName) {
   displayGrid.innerHTML = "";
 
   countryMembers.forEach((member) => {
+    // Fallback: If roleTitle is missing, use 'Head'
+    const titleLabel = member.roleTitle ? member.roleTitle : "Head";
+
     const cardHTML = `
             <div class="compact-card slide-up">
                 <div class="compact-header">
@@ -200,7 +219,7 @@ function renderCountryMembers(countryName) {
                 </div>
                 <div class="compact-body">
                     <h4>${member.name}</h4>
-                    <p class="compact-role"><strong>Head:</strong> ${member.dg}</p>
+                    <p class="compact-role"><strong>${titleLabel}:</strong> ${member.dg}</p>
                     <a href="${member.website}" target="_blank" class="compact-link">Visit Website &rarr;</a>
                 </div>
             </div>
@@ -933,33 +952,48 @@ const photoCollections = {
       caption: "Cross-section of Participants at the Workshop",
     },
   ],
-  summit: [
+  visit: [
     {
       src: "images/archive-1.jpg",
-      caption:
-        "Dr. S. K. Olowe, erstwhile ES (standing), Mr. Eniaiyejuni (left), and Mr. Samuel in class during Train-The-Trainers' held in 2019.",
-    },
-    {
-      src: "images/archive-2.jpg",
       caption:
         "ES, WAMDEVIN and members of Staff during a courtesy visit to Director-General of the Public Service Institute of Nigeria, Dr. Abdul-Ganiyu (late)",
     },
     {
-      src: "images/archive-3.jpg",
+      src: "images/archive-2.jpg",
       caption:
         "The Executive Secretary presents a plaque to the 2nd Vice President of WAMDEVIN & Director-General, ASCON in recognition of her remarkable first 100 days in office.",
+    },
+    {
+      src: "images/olowetopssdc.jpg",
+      caption:
+        "The former Executive Secretary visit as PSSDC marks 30th Anniversary.",
     },
   ],
   workshop: [
     {
       src: "images/ttt-1.jpg",
       caption:
-        "Group Photograph of Participants on the course: “Navigating Manpower Development Process for Learning and Development  Practitioners” organised by WAMDEVIN from 24th - 28th March & 14th - 18th April, 2025",
+        "Dr. S. K. Olowe, erstwhile ES (standing), Mr. Eniaiyejuni (left), and Mr. Samuel in class during Train-The-Trainers' held in 2019.",
     },
     {
       src: "images/ttt-2.jpg",
       caption:
+        "Group Photograph of Participants on the course: “Navigating Manpower Development Process for Learning and Development  Practitioners” organised by WAMDEVIN from 24th - 28th March & 14th - 18th April, 2025",
+    },
+    {
+      src: "images/ttt-3.jpg",
+      caption:
         "Group photo of Participants at the Productivity Enhancement Course held in 2025.",
+    },
+    {
+      src: "images/ttt-4.jpg",
+      caption:
+        "Group Photograph of Participants on the International Train-The-Trainers' workshop for Faculty Staff of WAMDEVIN MDIs held @ ASCON from 16th - 27th March, 2020",
+    },
+    {
+      src: "images/ttt-5.jpg",
+      caption:
+        "Group photo of Participants at the Train-The-Trainers Course (Blended) held @ ASCON in 2024.",
     },
   ],
   networking: [
@@ -1242,3 +1276,88 @@ themeBtn.addEventListener("click", function () {
     localStorage.setItem("theme", "light");
   }
 });
+
+// ==========================================
+// 18. POLL SYSTEM LOGIC
+// ==========================================
+function submitPoll(e) {
+  e.preventDefault();
+
+  const form = document.getElementById("pollForm");
+  const selected = form.querySelector('input[name="topic"]:checked');
+
+  if (selected) {
+    // In a real app, you would send 'selected.value' to a server here.
+    // For now, we simulate a success state.
+
+    const container = document.getElementById("poll-container");
+    container.innerHTML = `
+            <div style="text-align: center; padding: 20px;">
+                <i class="fas fa-check-circle" style="font-size: 3rem; color: #28a745; margin-bottom: 15px;"></i>
+                <h4 style="color: var(--primary-blue);">Thank You!</h4>
+                <p>You voted for: <strong>${selected.value}</strong></p>
+                <p style="font-size: 0.9rem; color: #666;">Your feedback helps shape our 2026 curriculum.</p>
+                
+                <div style="margin-top: 20px; text-align: left;">
+                    <span style="font-size: 0.8rem;">${selected.value}: 45%</span>
+                    <div style="background: #ddd; height: 8px; border-radius: 4px; overflow: hidden;">
+                        <div style="background: var(--accent-gold); width: 45%; height: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+    showToast("Vote recorded successfully!", "success", "Poll");
+  }
+}
+
+// ==========================================
+// 17. ALUMNI REGISTRATION LOGIC
+// ==========================================
+const alumniForm = document.getElementById("alumniForm");
+
+if (alumniForm) {
+  alumniForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const btn = alumniForm.querySelector(".submit-btn");
+    const originalBtnContent = btn.innerHTML;
+    const name = document.getElementById("alumniName").value;
+
+    btn.innerHTML =
+      '<span>Registering...</span> <i class="fas fa-spinner fa-spin"></i>';
+    btn.style.opacity = "0.7";
+    btn.disabled = true;
+
+    // Prepare Data
+    const formData = new FormData(alumniForm);
+    // We append a subject so you know it's an Alumni registration in your inbox
+    formData.append("subject", "New Alumni Registration");
+
+    try {
+      // Uses the same Formspree ID as your contact form
+      const response = await fetch("https://formspree.io/f/mgvbqbda", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        showToast(
+          `Welcome to the Network, ${name}!`,
+          "success",
+          "Registration Successful"
+        );
+        alumniForm.reset();
+      } else {
+        showToast("Something went wrong. Please try again.", "error", "Error");
+      }
+    } catch (error) {
+      showToast("Check your internet connection.", "error", "Network Error");
+    } finally {
+      btn.innerHTML = originalBtnContent;
+      btn.style.opacity = "1";
+      btn.disabled = false;
+    }
+  });
+}
