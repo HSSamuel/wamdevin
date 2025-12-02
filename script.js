@@ -33,7 +33,7 @@ const membersData = [
   {
     name: "Agricultural & Rural Management Training Institute (ARMTI)",
     dg: "Dr. Olufemi Oladunni",
-    roleTitle: "Director-General",
+    roleTitle: "Executive Director",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.armti.gov.ng",
@@ -42,7 +42,7 @@ const membersData = [
   {
     name: "Public Service Institute of Nigeria (PSIN)",
     dg: "Barrister Imeh Okon",
-    roleTitle: "Director-General",
+    roleTitle: "Administrator/CEO",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.psin.gov.ng",
@@ -68,7 +68,7 @@ const membersData = [
   },
   {
     name: "Nigeria Institute for Transport Technology (NITT)",
-    dg: "Dr. Bayero Salih Farah FCILT, FInsTA",
+    dg: "Dr. Bayero Salih Farah",
     roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
@@ -78,7 +78,7 @@ const membersData = [
   {
     name: "Nigerian College of Aviation Technology (NCAT)",
     dg: "Dr. Danjuma A. Ismaila",
-    roleTitle: "Director-General",
+    roleTitle: "Rector/CEO",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.ncat.gov.ng",
@@ -87,7 +87,7 @@ const membersData = [
   {
     name: "Simeon Adebo Staff Development Centre (SASDC)",
     dg: "Mrs S. O. Okedum",
-    roleTitle: "Director-General",
+    roleTitle: "Executive Secretary",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.sasdc.oyostate.gov.ng",
