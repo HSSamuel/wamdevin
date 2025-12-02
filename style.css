@@ -2938,7 +2938,7 @@ body.dark-mode .feedback-author img {
 
     /* Move Scroll-Up Button higher so it doesn't overlap */
     #scrollToTopBtn {
-        bottom: 100px;
+        bottom: 80px;
     }
 
     #theme-toggle {
@@ -3034,4 +3034,127 @@ body.dark-mode .bottom-nav {
 }
 body.dark-mode .fab-circle {
     border-color: #121212 !important; /* Matches dark body background */
+}
+
+/* =========================================
+   VERTICAL TIMELINE (About Page)
+   ========================================= */
+
+.timeline {
+    position: relative;
+    padding-left: 30px; /* Space for the line */
+    border-left: 3px solid #e0e0e0; /* The vertical line */
+    margin-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* The Dot on the line */
+.timeline-dot {
+    position: absolute;
+    left: -39px; /* Centers dot on the line */
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: var(--accent-gold);
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--primary-blue); /* Blue ring around gold dot */
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Hover Effect */
+.timeline-item:hover .timeline-dot {
+    background-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px var(--accent-gold);
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Adjustment */
+body.dark-mode .timeline {
+    border-left-color: #333;
+}
+body.dark-mode .timeline-dot {
+    box-shadow: 0 0 0 3px #fff;
+}
+body.dark-mode .timeline-content h3 {
+    color: var(--accent-gold) !important;
+}
+
+/* =========================================
+   WHATSAPP FLOATING BUTTON
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 60px; /* Sits above the Scroll-to-Top button (which is at 30px) */
+    right: 15px;
+    background-color: #25d366; /* Official WhatsApp Green */
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e; /* Darker green on hover */
+    color: white;
+    transform: scale(1.1);
+}
+
+.whatsapp-float i {
+    margin-top: 2px; /* Fine-tuning icon center */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 30px;
+        height: 30px;
+        font-size: 24px;
+        right: 20px;
+        /* Calculation:
+           Bottom Nav = 70px height
+           Scroll Top = sits at 100px
+           WhatsApp = needs to sit above Scroll Top
+        */
+        bottom: 110px; 
+    }
 }
