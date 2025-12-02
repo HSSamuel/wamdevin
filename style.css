@@ -2639,7 +2639,7 @@ body.dark-mode .feedback-author img {
     white-space: nowrap;
     will-change: transform;
     /* Animation: Move from Right edge (100%) to Left edge (-100%) */
-    animation: ticker-scroll 60s linear infinite;
+    animation: ticker-scroll 120s linear infinite;
     top: 0;
     left: 100%; /* Start completely off-screen to the right */
     height: 100%;
@@ -2681,6 +2681,7 @@ body.dark-mode .feedback-author img {
         font-size: 0.65rem;
     }
 }
+
 /* =========================================
    COMMUNITY HUB (Newsletter & Poll)
    ========================================= */
@@ -2911,4 +2912,126 @@ body.dark-mode .feedback-author img {
         font-size: 0.8rem;
         line-height: 15px; /* Match the new container height */
     }
+}
+
+/* =========================================
+   MOBILE BOTTOM NAVIGATION (App-Style)
+   ========================================= */
+
+/* 1. Hide by default (Desktop) */
+.bottom-nav {
+    display: none;
+}
+
+/* 2. Mobile Styles */
+@media (max-width: 768px) {
+    
+    /* Hide the TOP Hamburger Icon (We use bottom now) */
+    .main-header .menu-toggle {
+        display: none !important;
+    }
+
+    /* Add padding to body so content isn't hidden behind the bar */
+    body {
+        padding-bottom: 80px;
+    }
+
+    /* Move Scroll-Up Button higher so it doesn't overlap */
+    #scrollToTopBtn {
+        bottom: 100px;
+    }
+
+    #theme-toggle {
+        bottom: 80px;
+    }
+
+    /* The Bottom Bar Container */
+    .bottom-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background-color: white;
+        box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+        z-index: 10005; /* Top priority */
+        padding: 0 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    /* Navigation Items */
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #999;
+        font-size: 0.7rem;
+        width: 20%;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .nav-item i {
+        font-size: 1.3rem;
+        margin-bottom: 4px;
+        transition: transform 0.2s;
+    }
+
+    /* Active State */
+    .nav-item.active, .nav-item:hover {
+        color: var(--primary-blue);
+    }
+
+    .nav-item.active i {
+        transform: translateY(-2px);
+        color: var(--accent-gold);
+    }
+
+    /* 3. The Floating Action Button (Central Menu) */
+    .center-fab {
+        position: relative;
+        top: -25px; /* Float above the bar */
+    }
+
+    .fab-circle {
+        width: 55px;
+        height: 55px;
+        background-color: var(--primary-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 51, 102, 0.4);
+        border: 5px solid #fff; /* Creates the "cutout" look */
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Rotate animation when menu is open */
+    .nav-links.active ~ .bottom-nav .fab-circle {
+        background-color: var(--accent-gold);
+        transform: rotate(90deg);
+        color: var(--primary-blue);
+    }
+    
+    /* Change icon to X when active via CSS trick */
+    .nav-links.active ~ .bottom-nav .fab-circle i::before {
+        content: "\f00d"; /* FontAwesome code for 'times' (X) */
+    }
+}
+
+/* Dark Mode Support */
+body.dark-mode .bottom-nav {
+    background-color: #1e1e1e !important;
+    border-top: 1px solid #333;
+}
+body.dark-mode .fab-circle {
+    border-color: #121212 !important; /* Matches dark body background */
 }

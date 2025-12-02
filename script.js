@@ -1,11 +1,11 @@
-/// ==========================================
-// 1. MEMBER INSTITUTIONS DATA (Updated with Titles)
+// ==========================================
+// 1. MEMBER INSTITUTIONS DATA (DASHBOARD LOGIC)
 // ==========================================
 const membersData = [
   // --- NIGERIA 🇳🇬 ---
   {
     name: "Administrative Staff College of Nigeria (ASCON)",
-    dg: "Dr (Mrs.) Funke F. Adepoju",
+    dg: "Dr (Mrs) Funke F. Adepoju",
     roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
@@ -33,7 +33,7 @@ const membersData = [
   {
     name: "Agricultural & Rural Management Training Institute (ARMTI)",
     dg: "Dr. Olufemi Oladunni",
-    roleTitle: "Executive General",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.armti.gov.ng",
@@ -42,7 +42,7 @@ const membersData = [
   {
     name: "Public Service Institute of Nigeria (PSIN)",
     dg: "Barrister Imeh Okon",
-    roleTitle: "Administrator/CEO",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.psin.gov.ng",
@@ -68,7 +68,7 @@ const membersData = [
   },
   {
     name: "Nigeria Institute for Transport Technology (NITT)",
-    dg: "Dr. Bayero Salih Farah",
+    dg: "Dr. Bayero Salih Farah FCILT, FInsTA",
     roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
@@ -78,7 +78,7 @@ const membersData = [
   {
     name: "Nigerian College of Aviation Technology (NCAT)",
     dg: "Dr. Danjuma A. Ismaila",
-    roleTitle: "Rector/Chief Executive Officer",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.ncat.gov.ng",
@@ -87,7 +87,7 @@ const membersData = [
   {
     name: "Simeon Adebo Staff Development Centre (SASDC)",
     dg: "Mrs S. O. Okedum",
-    roleTitle: "Executive Secretary",
+    roleTitle: "Director-General",
     country: "Nigeria",
     flagUrl: "https://flagcdn.com/w40/ng.png",
     website: "http://www.sasdc.oyostate.gov.ng",
@@ -98,7 +98,7 @@ const membersData = [
   {
     name: "Ghana Institute of Management and Public Administration (GIMPA)",
     dg: "Prof. Samuel Kwaku Bonsu",
-    roleTitle: "Rector", // SPECIFIC TITLE
+    roleTitle: "Rector",
     country: "Ghana",
     flagUrl: "https://flagcdn.com/w40/gh.png",
     website: "http://www.gimpa.edu.gh",
@@ -118,7 +118,7 @@ const membersData = [
   {
     name: "Institute of Public Administration and Management (IPAM)",
     dg: "Prof. Ezekiel Duramany-Lakkoh",
-    roleTitle: "Deputy Vice-Chancellor", // SPECIFIC TITLE
+    roleTitle: "Deputy Vice-Chancellor",
     country: "Sierra Leone",
     flagUrl: "https://flagcdn.com/w40/sl.png",
     website: "http://www.usl.edu.sl",
@@ -151,7 +151,7 @@ const membersData = [
   {
     name: "Pan African Institute for Development (PAID-WA)",
     dg: "Dr. Gladys Njoukiang Asaah",
-    roleTitle: "Regional Director", // SPECIFIC TITLE
+    roleTitle: "Regional Director",
     country: "Cameroon",
     flagUrl: "https://flagcdn.com/w40/cm.png",
     website: "http://www.paidwestafrica.org",
@@ -166,6 +166,7 @@ const menuContainer = document.getElementById("country-menu");
 const displayHeader = document.getElementById("display-header");
 const displayGrid = document.getElementById("members-grid-display");
 
+// Defined order of countries to appear
 const countryOrder = [
   "Nigeria",
   "Ghana",
@@ -233,47 +234,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 3. MOBILE MENU TOGGLE
+// 3. MOBILE SIDEBAR TOGGLE
 // ==========================================
-const mobileMenuBtn = document.getElementById("mobile-menu");
 const navLinks = document.getElementById("navLinks");
+const overlay = document.getElementById("sidebar-overlay");
 
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    const icon = mobileMenuBtn.querySelector("i");
-    if (navLinks.classList.contains("active")) {
-      icon.classList.remove("fa-bars");
-      icon.classList.add("fa-times");
-    } else {
-      icon.classList.remove("fa-times");
-      icon.classList.add("fa-bars");
-    }
-  });
+// Function to toggle menu open/close
+function toggleMenu() {
+  if (navLinks) navLinks.classList.toggle("active");
+  if (overlay) overlay.classList.toggle("active");
 }
 
-// ==========================================
-// 15. MOBILE DROPDOWN TOGGLE
-// ==========================================
+// Mobile Dropdown Click Logic
 const dropdownBtns = document.querySelectorAll(".dropbtn");
-
 dropdownBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
-    // Only run this logic on mobile screens (768px or smaller)
     if (window.innerWidth <= 768) {
-      e.preventDefault(); // Stop the link from jumping to top
-
-      // 1. Get the parent <li>
+      e.preventDefault();
       const parentDropdown = this.parentElement;
 
-      // 2. Close other open dropdowns
+      // Close other open dropdowns first
       document.querySelectorAll(".dropdown").forEach((item) => {
-        if (item !== parentDropdown) {
-          item.classList.remove("active");
-        }
+        if (item !== parentDropdown) item.classList.remove("active");
       });
 
-      // 3. Toggle the clicked one
+      // Toggle the clicked one
       parentDropdown.classList.toggle("active");
     }
   });
@@ -310,6 +295,8 @@ if (heroSection) {
 function showToast(message, type = "success", title = "Notification") {
   const container = document.getElementById("toast-container");
 
+  if (!container) return;
+
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
 
@@ -324,17 +311,13 @@ function showToast(message, type = "success", title = "Notification") {
         </div>
     `;
 
-  if (container) {
-    container.appendChild(toast);
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.animation = "fadeOut 0.5s ease-forwards";
     setTimeout(() => {
-      toast.style.animation = "fadeOut 0.5s ease-forwards";
-      setTimeout(() => {
-        toast.remove();
-      }, 500);
-    }, 4000);
-  } else {
-    console.error("Toast container missing in HTML");
-  }
+      toast.remove();
+    }, 500);
+  }, 4000);
 }
 
 // ==========================================
@@ -345,7 +328,6 @@ const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-
     const btn = document.querySelector(".submit-btn");
     const originalBtnContent = btn.innerHTML;
 
@@ -357,28 +339,25 @@ if (contactForm) {
 
     // 2. Prepare Data (Convert to JSON)
     const formData = new FormData(contactForm);
-    // Convert FormData to a plain JavaScript object
     const data = Object.fromEntries(formData.entries());
     const json = JSON.stringify(data);
 
-    // Get user's name for the success message (fallback to "Partner")
     const userName = data.name || "Partner";
 
     try {
-      // 3. Send to Formspree (Using your ID: mgvbqbda)
+      // 3. Send to Formspree
       const response = await fetch("https://formspree.io/f/mgvbqbda", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: json, // Send the clean JSON string
+        body: json,
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        // 4. Success Toast
         showToast(
           `Thank you, ${userName}! Your application has been sent.`,
           "success",
@@ -386,7 +365,6 @@ if (contactForm) {
         );
         contactForm.reset();
       } else {
-        // 5. Formspree Specific Error (e.g. invalid email)
         if (result.errors) {
           showToast(
             result.errors.map((error) => error.message).join(", "),
@@ -402,11 +380,9 @@ if (contactForm) {
         }
       }
     } catch (error) {
-      // 6. Network Error
       showToast("Check your internet connection.", "error", "Network Error");
       console.error(error);
     } finally {
-      // 7. Reset Button
       btn.innerHTML = originalBtnContent;
       btn.style.opacity = "1";
       btn.disabled = false;
@@ -455,7 +431,6 @@ const excoProfiles = {
     img: "images/exco-4.jpg",
     bio: `
           <p>Hon. Nee Alah T. Varpilah is the Director General of the Liberia Institute of Public Administration (LIPA). Under his leadership, LIPA has modernized public-sector training by securing international partnerships, including becoming an Authorized Training Partner of the Project Management Institute (PMI), and signing MOUs with the Amos Claudius Sawyer Foundation and Liberian civil-service institutions.</p>
-            
           <p>He has expanded LIPA’s programs to include professional certifications, governance training, and institutional reform support, strengthening Liberia’s public-sector human capital. Publicly available information focuses mainly on his institutional role rather than personal biography.</p>
         `,
   },
@@ -482,7 +457,7 @@ const excoProfiles = {
   leader7: {
     name: "Olaolu A. Adewumi",
     role: "EXECUTIVE SECRETARY",
-    org: "Executive Secretary, WAMDEVIN Secretariat",
+    org: "WAMDEVIN Secretariat",
     img: "images/exco-7.jpg",
     bio: `
             <p style="text-align: justify;">Olaolu A. Adewumi is the Executive Secretary of the West African Management Development Institutes Network (WAMDEVIN), appointed in 2025. He has over 30 years of experience with WAMDEVIN, previously serving as Deputy Director of Studies. He holds a B.Sc. in Government & Public Administration, an MPA, and is pursuing a Ph.D. Adewumi is a recognized management professional and fellow/member of several professional bodies. As Executive Secretary, he leads WAMDEVIN’s capacity-building, research, training, and policy-consultancy initiatives across West Africa.</p>
@@ -493,6 +468,7 @@ const excoProfiles = {
 function openExcoModal(leaderId) {
   const modal = document.getElementById("exco-modal-overlay");
   const data = excoProfiles[leaderId];
+
   if (data && modal) {
     document.getElementById("modal-img").src = data.img;
     document.getElementById("modal-name").innerText = data.name;
@@ -561,12 +537,11 @@ if (metricsSection) {
     },
     { threshold: 0.5 }
   );
-
   observer.observe(metricsSection);
 }
 
 // ==========================================
-// 9. EVENT MODAL LOGIC (Corrected)
+// 9. EVENT MODAL LOGIC (Fixed Dynamic Buttons)
 // ==========================================
 const eventsData = {
   event1: {
@@ -751,7 +726,7 @@ function closeEventModal() {
 }
 
 // ==========================================
-// 10. AUTO-UPDATE EVENT STATUS
+// 10. AUTO-UPDATE EVENT STATUS (Time Check)
 // ==========================================
 function checkEventDates() {
   const cards = document.querySelectorAll(".member-card[data-end-date]");
@@ -768,6 +743,7 @@ function checkEventDates() {
         badge.innerText = "COMPLETED";
         badge.className = "status-badge completed";
       }
+
       const actionBtn = card.querySelector("a.know-more-btn");
       if (actionBtn) {
         actionBtn.innerText = "Access Resources";
@@ -783,8 +759,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 11. NEWS FEED LOGIC
+// 11. NEWS FEED LOGIC (With Conditional Links)
 // ==========================================
+
 const newsData = [
   {
     title:
@@ -793,7 +770,7 @@ const newsData = [
     category: "Training & 38th Anniversary",
     img: "images/anniversary.jpg",
     link: "https://independent.ng/wamdevin-holds-high-level-workshop-elects-new-president/?utm_source=chatgpt.com",
-    content: `WAMDEVIN held a three-day high-level workshop at CMD Lagos, bringing together senior officials and experts from across West Africa to strengthen cooperation, leadership capacity, and institutional excellence. The event which also marked WAMDEVIN's 38th anniversary, featured technical and peer-learning sessions and confirmed Mr. Alieu Jarju, DG of MDI/CSU The Gambia, as the new WAMDEVIN President. He pledged to deepen regional collaboration, strengthen institutional capacity, and expand partnerships. CMD and member institutions were commended, while Executive Secretary Olaolu Adewumi reaffirmed WAMDEVIN’s commitment to capacity building across the region.`,
+    content: `WAMDEVIN held a three-day high-level workshop at CMD Lagos, bringing together senior officials and experts from across West Africa to strengthen cooperation, leadership capacity, and institutional excellence. Outgoing President Hon. Nee-Alah Varpilah emphasized collaboration as key to tackling shared challenges like governance reforms and digital transformation. The event which also marked WAMDEVIN's 38th anniversary, featured technical and peer-learning sessions and confirmed Mr. Alieu Jarju, DG of MDI/CSU The Gambia, as the new WAMDEVIN President. He pledged to deepen regional collaboration, strengthen institutional capacity, and expand partnerships. CMD and member institutions were commended, while Executive Secretary Olaolu Adewumi reaffirmed WAMDEVIN’s commitment to capacity building across the region.`,
   },
   {
     title: "New Executive Secretary Assumes Office",
@@ -824,7 +801,8 @@ const newsData = [
     date: "Jan 2025",
     category: "Growth",
     img: "https://via.placeholder.com/600x300/333333/ffffff?text=Network+Growth",
-    link: "", // LINK REMOVED HERE
+    // LINK REMOVED HERE 👇
+    link: "",
     content: `Following an aggressive membership drive, WAMDEVIN has successfully increased its membership from 14 to 16 institutions, strengthening the network's collaborative capacity.`,
   },
 ];
@@ -834,7 +812,8 @@ function openNewsModal() {
   const container = document.getElementById("news-feed-container");
 
   if (modal && container) {
-    container.innerHTML = "";
+    container.innerHTML = ""; // Clear previous content
+
     newsData.forEach((news) => {
       const newsItem = document.createElement("div");
       newsItem.style.cssText = `
@@ -847,6 +826,8 @@ function openNewsModal() {
                 overflow: hidden;
                 display: block; 
             `;
+
+      // CONDITIONAL LINK LOGIC
       let linkHTML = "";
       if (news.link && news.link !== "" && news.link !== "#") {
         linkHTML = `
@@ -854,18 +835,26 @@ function openNewsModal() {
                 Read Full Story &rarr;
             </a>`;
       }
+
       newsItem.innerHTML = `
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <span style="background: #eef2f6; color: var(--primary-blue); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase;">${news.category}</span>
                     <span style="font-size: 0.8rem; color: #888;">${news.date}</span>
                 </div>
+                
                 <h3 style="color: #333; margin-bottom: 15px; font-size: 1.2rem; line-height: 1.4;">${news.title}</h3>
-                <img src="${news.img}" alt="${news.title}" class="news-card-img" onerror="this.style.display='none'">
+                
+                <img src="${news.img}" alt="${news.title}" 
+                     class="news-card-img"
+                     onerror="this.style.display='none'">
+                
                 <p style="color: #555; line-height: 1.6; font-size: 0.95rem; text-align: justify; margin-bottom: 15px;">${news.content}</p>
+                
                 ${linkHTML}
             `;
       container.appendChild(newsItem);
     });
+
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
   }
@@ -886,126 +875,84 @@ const photoCollections = {
   retreat: [
     {
       src: "images/ceo-1.jpg",
-      caption:
-        "Opening Ceremony of a 3-Day International Networking Workshop held at CMD, Lgaos from 25th - 27th Nov., 2025",
+      caption: "Opening Ceremony of a 3-Day International Networking Workshop",
     },
-    {
-      src: "images/ceo-2.jpg",
-      caption: "Cross-section of participants and facilitators",
-    },
+    { src: "images/ceo-2.jpg", caption: "Cross-section of participants" },
     {
       src: "images/ceo-3.jpg",
-      caption:
-        "Executive Secretary of WAMDEVIN, Olaolu A. Adewumi, The President of WAMDEVIN, ably represented by Mrs. Fatou presenting an award of distinction to Mr. Shehu Zubairu (Facilitator)",
+      caption: "Presentation of Award to Mr. Shehu Zubairu",
     },
     {
       src: "images/ceo-4.jpg",
-      caption:
-        "Mrs. Fatou, representing the President of WAMDEVIN, presenting an award of distinction to Mr. Audu G. A. (Facilitator)",
+      caption: "Presentation of Award to Mr. Audu G. A.",
     },
     {
       src: "images/ceo-5.jpg",
-      caption:
-        "Executive Secretary presenting a Certificate of Membership to the DG of CMD ably reprented by Mrs Edem Stella.",
+      caption: "Certificate Presentation to CMD Rep",
     },
-    {
-      src: "images/ceo-6.jpg",
-      caption:
-        "ES presenting a Certificate of Membership to The President, WAMDEVIN & DG, MDI/CSU, ably represented by Mrs Fatou.",
-    },
+    { src: "images/ceo-6.jpg", caption: "Certificate Presentation to MDI Rep" },
     {
       src: "images/ceo-7.jpg",
-      caption:
-        "ES presenting a Certificate of Membership to the DG, PSSDC (participant)",
+      caption: "Certificate Presentation to PSSDC DG",
     },
     {
       src: "images/ceo-8.jpg",
-      caption:
-        "ES presenting an Award of Excellence to Mr. Momodou Mboob (participant)",
+      caption: "Award of Excellence to Mr. Momodou Mboob",
     },
     {
       src: "images/ceo-9.jpg",
-      caption:
-        "ES presenting an Award of Excellence to Adams Isa Ohida (participant)",
+      caption: "Award of Excellence to Adams Isa Ohida",
     },
     {
       src: "images/ceo-10.jpg",
-      caption:
-        "ES presenting an Award of Excellence to Mr. Sillah Conateh (participant)",
+      caption: "Award of Excellence to Mr. Sillah Conateh",
     },
     {
       src: "images/ceo-11.jpg",
-      caption: "Mumuni, S. O. receiving a Long Service Award from DG, PSSDC",
+      caption: "Long Service Award to Mumuni S. O.",
     },
     {
       src: "images/ceo-12.jpg",
-      caption:
-        "ES presenting a Certificate of Participation to Dauda Yahaya (participant)",
+      caption: "Certificate Presentation to Dauda Yahaya",
     },
     {
       src: "images/ceo-13.jpg",
-      caption:
-        "Mr. Sillah Conateh presenting Appreciation Award to Mrs. Adeyemo",
+      caption: "Appreciation Award to Mrs. Adeyemo",
     },
-    {
-      src: "images/ceo-14.jpg",
-      caption: "Cross-section of Participants at the Workshop",
-    },
+    { src: "images/ceo-14.jpg", caption: "Cross-section of Participants" },
   ],
   visit: [
+    { src: "images/archive-1.jpg", caption: "Courtesy Visit to PSIN" },
+    { src: "images/archive-2.jpg", caption: "Courtesy Visit to PSIN DG" },
     {
-      src: "images/archive-1.jpg",
-      caption:
-        "ES, WAMDEVIN and members of Staff during a courtesy visit to Director-General of the Public Service Institute of Nigeria, Dr. Abdul-Ganiyu (late)",
-    },
-    {
-      src: "images/archive-2.jpg",
-      caption:
-        "The Executive Secretary presents a plaque to the 2nd Vice President of WAMDEVIN & Director-General, ASCON in recognition of her remarkable first 100 days in office.",
-    },
-    {
-      src: "images/olowetopssdc.jpg",
-      caption:
-        "The former Executive Secretary visit as PSSDC marks 30th Anniversary.",
+      src: "images/archive-3.jpg",
+      caption: "The panelists during the third ES recruitment",
     },
   ],
   workshop: [
     {
       src: "images/ttt-1.jpg",
-      caption:
-        "Dr. S. K. Olowe, erstwhile ES (standing), Mr. Eniaiyejuni (left), and Mr. Samuel in class during Train-The-Trainers' held in 2019.",
+      caption: "Train-The-Trainers Workshop 2019",
     },
     {
       src: "images/ttt-2.jpg",
-      caption:
-        "Group Photograph of Participants on the course: “Navigating Manpower Development Process for Learning and Development  Practitioners” organised by WAMDEVIN from 24th - 28th March & 14th - 18th April, 2025",
+      caption: "Avanced Train-The-Trainers 2025",
     },
     {
       src: "images/ttt-3.jpg",
-      caption:
-        "Group photo of Participants at the Productivity Enhancement Course held in 2025.",
+      caption: "Productivity Enhancement Course Group Photo",
     },
     {
       src: "images/ttt-4.jpg",
-      caption:
-        "Group Photograph of Participants on the International Train-The-Trainers' workshop for Faculty Staff of WAMDEVIN MDIs held @ ASCON from 16th - 27th March, 2020",
+      caption: "International Train-The-Trainers Workshop 2020",
     },
-    {
-      src: "images/ttt-5.jpg",
-      caption:
-        "Group photo of Participants at the Train-The-Trainers Course (Blended) held @ ASCON in 2024.",
-    },
+    { src: "images/ttt-5.jpg", caption: "Train-The-Trainers (Blended) 2024" },
   ],
   networking: [
-    {
-      src: "images/session-1.jpg",
-      caption:
-        "Executive Secretary in attendance with the members of the House of Representatives Committee on Public Service Matters during an oversight visit to ASCON to assess ongoing projects and review capacity-building initiatives.",
-    },
+    { src: "images/session-1.jpg", caption: "House of Reps Committee Visit" },
     {
       src: "images/session-2.jpg",
-      caption:
-        "Cross section of the ES and DG, MDI/CSU The Gambia (represented by Mrs. Fatou) at the General Assembly Meeting held in Nov. 25, 2025",
+      caption: "General Assembly Meeting Nov 2025",
     },
   ],
 };
@@ -1026,8 +973,16 @@ function openLightbox(galleryId) {
 
     lightboxOverlay.style.display = "block";
     document.body.style.overflow = "hidden";
+    startSlideshow();
 
-    startSlideshow(); // Start the timer
+    // Add pause listeners
+    const content = document.querySelector(".lightbox-content");
+    if (content) {
+      content.onmouseenter = stopSlideshow;
+      content.ontouchstart = stopSlideshow;
+      content.onmouseleave = startSlideshow;
+      content.ontouchend = startSlideshow;
+    }
   }
 }
 
@@ -1036,21 +991,16 @@ function closeLightbox() {
   if (lightboxOverlay) {
     lightboxOverlay.style.display = "none";
     document.body.style.overflow = "auto";
-    stopSlideshow(); // Kill the timer immediately
+    stopSlideshow();
   }
 }
 
 function changeSlide(n) {
-  // 1. STOP the timer immediately so it doesn't double-jump
   stopSlideshow();
-
   const gallery = photoCollections[currentGalleryId];
   if (gallery) {
-    // 2. Change the slide
     lightboxIndex = (lightboxIndex + n + gallery.length) % gallery.length;
     updateLightboxImage();
-
-    // 3. RESTART the timer (User is done clicking, resume auto-play)
     startSlideshow();
   }
 }
@@ -1066,18 +1016,11 @@ function updateLightboxImage() {
   } / ${gallery.length}`;
 }
 
-// --- TIMER FUNCTIONS ---
-
 function startSlideshow() {
-  clearInterval(slideTimer); // Safety clear
+  clearInterval(slideTimer);
   slideTimer = setInterval(() => {
-    // We call the update logic directly to avoid infinite loops
-    const gallery = photoCollections[currentGalleryId];
-    if (gallery) {
-      lightboxIndex = (lightboxIndex + 1) % gallery.length;
-      updateLightboxImage();
-    }
-  }, 3000); // 3 Seconds
+    changeSlide(1);
+  }, 3000);
 }
 
 function stopSlideshow() {
@@ -1085,7 +1028,7 @@ function stopSlideshow() {
 }
 
 // ==========================================
-// 13. RESOURCE DETAILS MODAL
+// 13. RESOURCE MODAL LOGIC
 // ==========================================
 const resourcesData = {
   res1: {
@@ -1176,30 +1119,22 @@ scrollBtn.addEventListener("click", function () {
 // 15. RESOURCE SEARCH FUNCTION
 // ==========================================
 function filterResources() {
-  // 1. Get the search term
   const input = document.getElementById("resource-search");
   const filter = input.value.toLowerCase();
-
-  // 2. Get all searchable items (Documents & Gallery Photos)
-  // We select both classes at once
   const cards = document.querySelectorAll(".member-card, .gallery-item");
 
-  // 3. Loop through all items
   cards.forEach((card) => {
-    // Get the text content of the card (Title, Description, Caption)
     const text = card.textContent || card.innerText;
-
-    // 4. Check if the search term is inside the text
     if (text.toLowerCase().indexOf(filter) > -1) {
-      card.style.display = ""; // Show it
+      card.style.display = "";
     } else {
-      card.style.display = "none"; // Hide it
+      card.style.display = "none";
     }
   });
 }
 
 // ==========================================
-// 16. NEWSLETTER SUBSCRIPTION LOGIC
+// 16. NEWSLETTER SUBSCRIPTION LOGIC (Auto-Download)
 // ==========================================
 const newsletterForm = document.getElementById("newsletterForm");
 
@@ -1214,12 +1149,13 @@ if (newsletterForm) {
     btn.innerText = "Subscribing...";
     btn.disabled = true;
 
-    // Note: You can use the same Formspree ID or create a new one specifically for Newsletters
+    // Prepare Data
     const formData = new FormData();
     formData.append("email", emailInput);
     formData.append("subject", "Newsletter Subscription");
 
     try {
+      // Send to Formspree
       const response = await fetch("https://formspree.io/f/mgvbqbda", {
         method: "POST",
         body: formData,
@@ -1227,12 +1163,23 @@ if (newsletterForm) {
       });
 
       if (response.ok) {
+        // 1. Show Success Message
         showToast(
-          "Welcome to the community! Subscription successful.",
+          "Welcome! The newsletter is downloading now.",
           "success",
           "Subscribed"
         );
         newsletterForm.reset();
+
+        // 2. TRIGGER AUTOMATIC DOWNLOAD
+        // This creates a temporary invisible link and clicks it for the user
+        const link = document.createElement("a");
+        link.href = "downloads/WAMDEVIN_Newsletter_Q4_2025.pdf"; // Path to your file
+        link.download = "WAMDEVIN_Newsletter_Q4_2025.pdf";       // Force download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
       } else {
         showToast("Could not subscribe. Please try again.", "error", "Error");
       }
@@ -1248,26 +1195,20 @@ if (newsletterForm) {
 // ==========================================
 // 17. DARK MODE TOGGLE
 // ==========================================
-
-// 1. Create the toggle button
 const themeBtn = document.createElement("button");
 themeBtn.id = "theme-toggle";
-themeBtn.innerHTML = '<i class="fas fa-moon"></i>'; // Default icon
+themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
 themeBtn.title = "Toggle Dark Mode";
 document.body.appendChild(themeBtn);
 
-// 2. Check for saved preference
 const currentTheme = localStorage.getItem("theme");
 if (currentTheme === "dark") {
   document.body.classList.add("dark-mode");
-  themeBtn.innerHTML = '<i class="fas fa-sun"></i>'; // Switch to sun icon
+  themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
-// 3. Add Click Event
 themeBtn.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
-
-  // Logic to switch icon and save preference
   if (document.body.classList.contains("dark-mode")) {
     themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
     localStorage.setItem("theme", "dark");
@@ -1282,44 +1223,30 @@ themeBtn.addEventListener("click", function () {
 // ==========================================
 function submitPoll(e) {
   e.preventDefault();
-
   const form = document.getElementById("pollForm");
   const selected = form.querySelector('input[name="topic"]:checked');
 
   if (selected) {
-    // In a real app, you would send 'selected.value' to a server here.
-    // For now, we simulate a success state.
-
     const container = document.getElementById("poll-container");
     container.innerHTML = `
             <div style="text-align: center; padding: 20px;">
                 <i class="fas fa-check-circle" style="font-size: 3rem; color: #28a745; margin-bottom: 15px;"></i>
                 <h4 style="color: var(--primary-blue);">Thank You!</h4>
                 <p>You voted for: <strong>${selected.value}</strong></p>
-                <p style="font-size: 0.9rem; color: #666;">Your feedback helps shape our 2026 curriculum.</p>
-                
-                <div style="margin-top: 20px; text-align: left;">
-                    <span style="font-size: 0.8rem;">${selected.value}: 45%</span>
-                    <div style="background: #ddd; height: 8px; border-radius: 4px; overflow: hidden;">
-                        <div style="background: var(--accent-gold); width: 45%; height: 100%;"></div>
-                    </div>
-                </div>
             </div>
         `;
-
-    showToast("Vote recorded successfully!", "success", "Poll");
+    showToast("Vote recorded!", "success", "Poll");
   }
 }
 
 // ==========================================
-// 17. ALUMNI REGISTRATION LOGIC
+// 19. ALUMNI REGISTRATION LOGIC
 // ==========================================
 const alumniForm = document.getElementById("alumniForm");
 
 if (alumniForm) {
   alumniForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-
     const btn = alumniForm.querySelector(".submit-btn");
     const originalBtnContent = btn.innerHTML;
     const name = document.getElementById("alumniName").value;
@@ -1329,13 +1256,10 @@ if (alumniForm) {
     btn.style.opacity = "0.7";
     btn.disabled = true;
 
-    // Prepare Data
     const formData = new FormData(alumniForm);
-    // We append a subject so you know it's an Alumni registration in your inbox
     formData.append("subject", "New Alumni Registration");
 
     try {
-      // Uses the same Formspree ID as your contact form
       const response = await fetch("https://formspree.io/f/mgvbqbda", {
         method: "POST",
         body: formData,
@@ -1343,17 +1267,13 @@ if (alumniForm) {
       });
 
       if (response.ok) {
-        showToast(
-          `Welcome to the Network, ${name}!`,
-          "success",
-          "Registration Successful"
-        );
+        showToast(`Welcome, ${name}!`, "success", "Success");
         alumniForm.reset();
       } else {
-        showToast("Something went wrong. Please try again.", "error", "Error");
+        showToast("Registration failed.", "error", "Error");
       }
     } catch (error) {
-      showToast("Check your internet connection.", "error", "Network Error");
+      showToast("Check internet.", "error", "Error");
     } finally {
       btn.innerHTML = originalBtnContent;
       btn.style.opacity = "1";
