@@ -450,11 +450,20 @@ a {
   box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
 }
 
+/* Invert the Icon colors & Rotate */
 .member-card.hover-lift:hover .card-header i {
-  background: var(--primary-blue);
-  color: var(--accent-gold);
-  transform: scale(1.1) rotate(10deg);
-  box-shadow: 0 15px 30px rgba(0, 51, 102, 0.3);
+    /* OPTION 1: Gold Background, Blue Icon (High Contrast) */
+    background: var(--accent-gold) !important;
+    color: var(--primary-blue) !important;
+    
+    /* OPTION 2: Use this if you prefer White Background, Blue Icon */
+    /* background: white !important; */
+    /* color: var(--primary-blue) !important; */
+    
+    transform: scale(1.1) rotate(10deg);
+    
+    /* Shadow matching the Gold color */
+    box-shadow: 0 15px 30px rgba(255, 193, 7, 0.4) !important;
 }
 
 /* Gold Sweep Effect */
@@ -3156,5 +3165,115 @@ body.dark-mode .timeline-content h3 {
            WhatsApp = needs to sit above Scroll Top
         */
         bottom: 115px; 
+    }
+}
+
+/* =========================================
+   TABLET / IPAD NAVIGATION FIX
+   ========================================= */
+@media (min-width: 769px) and (max-width: 1250px) {
+    
+    /* 1. Use more screen width */
+    .container {
+        width: 95%; /* Expands content closer to the edges */
+    }
+
+    /* 2. Reduce gap between links */
+    .nav-links {
+        gap: 15px; /* Reduced from 25px to fit everything */
+    }
+
+    /* 3. Slightly smaller font size */
+    .nav-links a, .dropbtn {
+        font-size: 0.9rem; /* Reduced from default size */
+    }
+    
+    /* 4. Adjust logo size if needed to save space */
+    .logo {
+        height: 50px; /* Slightly smaller logo */
+    }
+    
+    /* 5. Shrink the 'Contact Us' button padding */
+    .btn-contact {
+        padding: 8px 15px;
+    }
+}
+
+/* =========================================
+   IPAD / TABLET MEMBER INSTITUTIONS ADJUSTMENTS
+   ========================================= */
+@media (min-width: 600px) and (max-width: 1024px) {
+    
+    /* Force 2 Columns for Member Grids */
+    .members-grid, 
+    .members-grid-compact {
+        grid-template-columns: repeat(2, 1fr); /* Strictly 2 columns */
+        gap: 20px; /* Slightly reduced gap to ensure they fit */
+    }
+
+    /* Ensure the Dashboard Stacks on Portrait iPad (if not already) */
+    /* This ensures the sidebar goes to top and grid gets full width */
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Adjust the Country Menu to scroll horizontally like on mobile */
+    .country-menu {
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
+    }
+
+    .country-btn {
+        flex-shrink: 0;
+    }
+}
+
+/* =========================================
+   HERO SECTION RESPONSIVENESS
+   ========================================= */
+
+/* 1. FOR MOBILE PHONES (Portrait) - Max Width 768px */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh; /* Reduces height to 50% of screen */
+        min-height: 400px; /* Ensures it's not too short */
+        background-position: center; /* Keeps center of image visible */
+        background-attachment: scroll; /* Prevents zooming issues on some phones */
+    }
+
+    .hero-content h2 {
+        font-size: 2rem; /* Smaller text */
+        margin-bottom: 15px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        line-height: 1.4;
+        display: none; /* Optional: Hide paragraph on very small screens to focus on image */
+    }
+    
+    /* Show paragraph only if screen is tall enough */
+    @media (min-height: 600px) {
+        .hero-content p { display: block; }
+    }
+}
+
+/* 2. FOR IPADS & TABLETS - Width between 769px and 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero {
+        height: 60vh; /* 60% of screen height (Standard Tablet Header) */
+        min-height: 450px;
+        background-position: center center;
+    }
+
+    .hero-content {
+        max-width: 90%; /* Use more width on tablet */
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
     }
 }
