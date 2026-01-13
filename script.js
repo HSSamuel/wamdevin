@@ -1046,7 +1046,7 @@ const resourcesData = {
   res3: {
     title: "Strategic Plan (2025-2030)",
     icon: "fa-chess",
-    file: "downloads/Strategic_Plan_2025-2029.pdf",
+    file: "downloads/Strategic_Plan_2025-2030.pdf",
     desc: "Our 5-year rolling plan focusing on Full Engagement of Stakeholders, Financial Sustainability, and Digital Transformation of the Secretariat.",
   },
   res4: {
@@ -1175,11 +1175,10 @@ if (newsletterForm) {
         // This creates a temporary invisible link and clicks it for the user
         const link = document.createElement("a");
         link.href = "downloads/WAMDEVIN_Newsletter_Q4_2025.pdf"; // Path to your file
-        link.download = "WAMDEVIN_Newsletter_Q4_2025.pdf";       // Force download
+        link.download = "WAMDEVIN_Newsletter_Q4_2025.pdf"; // Force download
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-
       } else {
         showToast("Could not subscribe. Please try again.", "error", "Error");
       }
@@ -1280,4 +1279,28 @@ if (alumniForm) {
       btn.disabled = false;
     }
   });
+}
+
+// ==========================================
+// 20. AUTOMATIC POP-UP LOGIC
+// ==========================================
+window.addEventListener("load", function () {
+  // Wait 2.5 seconds after the site loads, then show the popup
+  setTimeout(function () {
+    const popup = document.getElementById("popup-overlay");
+
+    // This check ensures the code doesn't crash if the popup is missing
+    if (popup) {
+      popup.classList.add("active"); // Shows the popup
+      document.body.style.overflow = "hidden"; // Stops background scrolling
+    }
+  }, 1500);
+});
+
+function closePopup() {
+  const popup = document.getElementById("popup-overlay");
+  if (popup) {
+    popup.classList.remove("active"); // Hides the popup
+    document.body.style.overflow = "auto"; // Resumes scrolling
+  }
 }
