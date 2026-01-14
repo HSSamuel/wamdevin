@@ -1285,13 +1285,13 @@ if (alumniForm) {
 // 20. AUTOMATIC POP-UP LOGIC
 // ==========================================
 window.addEventListener("load", function () {
-  // Wait 2.5 seconds after the site loads, then show the popup
+  // Wait 1.5 seconds after the site loads, then show the popup
   setTimeout(function () {
     const popup = document.getElementById("popup-overlay");
 
     // This check ensures the code doesn't crash if the popup is missing
     if (popup) {
-      popup.classList.add("active"); // Shows the popup
+      popup.classList.add("active"); // Shows the popup by adding the class
       document.body.style.overflow = "hidden"; // Stops background scrolling
     }
   }, 1500);
